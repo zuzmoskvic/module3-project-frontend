@@ -21,8 +21,11 @@ const AuthContextWrapper = (props) => {
           body: {
             token: gotToken,
           },
+         
         });
+        
         console.log("response from verify route", data);
+       
         setUser(data.user);
         setIsLoading(false);
         setIsLoggedIn(true);
@@ -46,6 +49,25 @@ const AuthContextWrapper = (props) => {
     removeToken();
     authenticateUser();
   };
+  const addRecord = async () => {
+   const gotRecord = localStorage.getItem("record")
+   if(gotRecord){
+try{
+  const { record } = await axios.get("http://localhost:5005/auth/addRecord", {
+    
+    body: {
+      task: gotRecord.task,
+      record: gotRecord.record,
+    },
+  
+  });
+  console.log("here is the record", record)
+}catch(err){
+  console.log("there was an error", err)
+}
+
+   }
+  }
   useEffect(() => {
     authenticateUser();
   }, []);
@@ -59,6 +81,7 @@ const AuthContextWrapper = (props) => {
         setIsLoggedIn,
         user,
         logOutUser,
+        addRecord,
       }}
     >
       {props.children}

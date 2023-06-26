@@ -1,8 +1,11 @@
 import React from 'react'
-
 function ProfilePage() {
+  
+
   return (
-    <div>ProfilePage</div>
+    <div>
+       <p>profile page</p>
+    </div>
   )
 }
 
