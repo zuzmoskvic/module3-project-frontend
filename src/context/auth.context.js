@@ -56,8 +56,8 @@ try{
   const { record } = await axios.get("http://localhost:5005/auth/addRecord", {
     
     body: {
-      task: gotRecord.task,
-      record: gotRecord.record,
+      title: gotRecord.task,
+      recordPath: gotRecord.recordPath,
     },
   
   });

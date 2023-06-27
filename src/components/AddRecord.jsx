@@ -3,17 +3,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function AddRecord() {
-  const [task, setTask] = useState("");
-  const [record, setRecord] = useState("");
+  const [title, setTitle] = useState("");
+  const [recordPath, setRecordPath] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-  const handleTask = (e) => setTask(e.target.value);
-  const handleRecord = (e) => setRecord(e.target.value);
+  const handleTitle = (e) => setTitle(e.target.value);
+  const handleRecordPath = (e) => setRecordPath(e.target.value);
 
   const handleAddRecord = (e) => {
     e.preventDefault();
-    const requestBody = { task, record };
+    const requestBody = { title, recordPath };
 
     axios
       .post(`http://localhost:5005/auth/addRecord`, requestBody)
@@ -32,15 +32,17 @@ function AddRecord() {
       <h1>Add Record</h1>
 
       <form onSubmit={handleAddRecord}>
-        <label>Task</label>
-        <input type="text" name="task" value={task} onChange={handleTask} />
+        <label>Title</label>
+        <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label>Record:</label>
         <input
-          type="text"
-          name="record"
-          value={record}
-          onChange={handleRecord}
+          type="file"
+          name="recordPath"
+          accept="image/png, image/jpg"
+          id="recordPath"
+          value={recordPath}
+          onChange={handleRecordPath}
         />
 
         <button type="submit">Submit your Record</button>
