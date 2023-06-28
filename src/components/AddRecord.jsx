@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function AddRecord() {
@@ -9,16 +10,20 @@ function AddRecord() {
 
   const navigate = useNavigate();
   const handleTitle = (e) => setTitle(e.target.value);
-  const handleRecordPath = (e) => setRecordPath(e.target.value);
+  const handleRecordPath = (e) => setRecordPath(e.target.files[0]);
+
 
   const handleAddRecord = (e) => {
     e.preventDefault();
-    const requestBody = { title, recordPath };
+    const formData = new FormData();
+  formData.append("title", title);
+  formData.append("recordPath", recordPath);
 
     axios
-      .post(`http://localhost:5005/auth/addRecord`, requestBody)
+      .post(`http://localhost:5005/auth/addRecord`, formData)
       .then(() => {
-        navigate("/recordsPage", { state: { requestBody } });
+        navigate("/recordsPage");
+        console.log(formData)
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -31,17 +36,18 @@ function AddRecord() {
     <div >
       <h1>Add Record</h1>
 
-      <form onSubmit={handleAddRecord}>
+      <form onSubmit={handleAddRecord} enctype="multipart/form-data">
         <label>Title</label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label>Record:</label>
         <input
           type="file"
+         
           name="recordPath"
-          accept="image/png, image/jpg"
+          
           id="recordPath"
-          value={recordPath}
+          
           onChange={handleRecordPath}
         />
 

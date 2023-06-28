@@ -49,25 +49,7 @@ const AuthContextWrapper = (props) => {
     removeToken();
     authenticateUser();
   };
-  const addRecord = async () => {
-   const gotRecord = localStorage.getItem("record")
-   if(gotRecord){
-try{
-  const { record } = await axios.get("http://localhost:5005/auth/addRecord", {
-    
-    body: {
-      title: gotRecord.task,
-      recordPath: gotRecord.recordPath,
-    },
   
-  });
-  console.log("here is the record", record)
-}catch(err){
-  console.log("there was an error", err)
-}
-
-   }
-  }
   useEffect(() => {
     authenticateUser();
   }, []);
@@ -81,7 +63,7 @@ try{
         setIsLoggedIn,
         user,
         logOutUser,
-        addRecord,
+       
       }}
     >
       {props.children}

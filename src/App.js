@@ -26,6 +26,7 @@ function App() {
             </PrivatePage>
           }
         />
+         
       </Routes>
     </div>
   );
