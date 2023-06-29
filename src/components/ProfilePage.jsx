@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+
 function ProfilePage() {
-  
+  const { logOutUser, user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div>
-       <p>profile page</p>
+      {user && user.email}
+      ProfilePage
+      <button onClick={logOutUser}>Logout</button>
     </div>
-  )
+  );
 }
 
-export default ProfilePage
+export default ProfilePage;

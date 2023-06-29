@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function AddRecord() {
- 
+  const gotToken = localStorage.getItem("authToken");
+
  const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -27,12 +28,15 @@ const recordPathValue = formData.get("recordPath");
 console.log(titleValue); 
 console.log(recordPathValue);
 */
+console.log("here is our token", gotToken)
     axios
-      .post(`http://localhost:5005/auth/addRecord`, formData)
+      .post(`http://localhost:5005/auth/addRecord`, formData,   {
+        headers: { authorization: `Bearer ${gotToken}` },
+      })
       .then(() => {
         navigate("/recordsPage");
         
-       
+       console.log()
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

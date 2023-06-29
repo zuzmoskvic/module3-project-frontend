@@ -2,35 +2,30 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import ProfilePage from "./components/ProfilePage";
 import AddRecord from "./components/AddRecord";
+import RecordsPage from "./components/RecordsPage"
+import ProfilePage from "./components/ProfilePage";
 import PrivatePage from "./components/PrivatePage";
-import RecordsPage from "./components/RecordsPage";
-import Home from "./components/Home"
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/addRecord"  element={<AddRecord />}/>
         <Route path="/recordsPage" element={<RecordsPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route
           path="/profile"
           element={
-            
-              <ProfilePage  />
-              
-           
+            <PrivatePage>
+              <ProfilePage />
+            </PrivatePage>
           }
         />
-        
-         
       </Routes>
     </div>
   );
 }
 
-export default App;
+export default App
