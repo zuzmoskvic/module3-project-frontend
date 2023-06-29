@@ -18,19 +18,12 @@ const AuthContextWrapper = (props) => {
       try {
         const { data } = await axios.get("http://localhost:5005/auth/verify", {
           headers: { authorization: `Bearer ${gotToken}` },
-          body: {
-            token: gotToken,
-          },
-         
         });
-        
-        console.log("response from verify route", data);
-       
         setUser(data.user);
         setIsLoading(false);
         setIsLoggedIn(true);
       } catch (err) {
-        console.log("there was an error on the authenticate user", err);
+        console.log("There was an error during authentication", err);
         setUser(null);
         setIsLoading(false);
         setIsLoggedIn(false);
@@ -49,10 +42,12 @@ const AuthContextWrapper = (props) => {
     removeToken();
     authenticateUser();
   };
+
   
   useEffect(() => {
     authenticateUser();
   }, []);
+
   return (
     <AuthContext.Provider
       value={{
@@ -63,7 +58,7 @@ const AuthContextWrapper = (props) => {
         setIsLoggedIn,
         user,
         logOutUser,
-       
+        
       }}
     >
       {props.children}

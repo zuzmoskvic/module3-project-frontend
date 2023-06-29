@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function AddRecord() {
-  const [title, setTitle] = useState("");
+ 
+ const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -19,11 +20,19 @@ function AddRecord() {
   formData.append("title", title);
   formData.append("recordPath", recordPath);
 
+  //Gets the value of the inputs so you can check them in the console
+ /* const titleValue = formData.get("title"); 
+const recordPathValue = formData.get("recordPath");
+
+console.log(titleValue); 
+console.log(recordPathValue);
+*/
     axios
       .post(`http://localhost:5005/auth/addRecord`, formData)
       .then(() => {
         navigate("/recordsPage");
-        console.log(formData)
+        
+       
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

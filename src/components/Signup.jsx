@@ -18,7 +18,7 @@ function Signup() {
     axios
       .post(`http://localhost:5005/auth/signup`, requestBody)
       .then(() => {
-        navigate("/profile", { state: { requestBody } });
+        navigate("/login", { state: { requestBody } });
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
