@@ -45,7 +45,7 @@ const AuthContextWrapper = (props) => {
 
   
   useEffect(() => {
-   // authenticateUser();
+   authenticateUser();
   }, []);
 
   return (
