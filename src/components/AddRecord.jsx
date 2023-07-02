@@ -48,7 +48,7 @@ function AddRecord() {
     <div>
       <h1>Add Record</h1>
 
-      <form onSubmit={handleAddRecord} enctype="multipart/form-data">
+      <form onSubmit={handleAddRecord} encType="multipart/form-data">
         <label>Title</label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
