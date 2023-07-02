@@ -44,32 +44,6 @@ function AddRecord() {
     }
   };
 
-// handling Transcribe Button which fetches transcript of a local file from backend 
-  const [transcription, setTranscription] = useState(null);
-  
-  
-    const handleTranscribeButton = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:5005/auth/transcribe",
-          {
-            headers: { authorization: `Bearer ${gotToken}` },
-          }
-        );
-        console.log("Responding and this is the response.data: ", response.data); 
-        const { text } = response.data;
-        console.log("Responding and this is the text: ", text); 
-        setTranscription(text);  
-        console.log('Transcript:', transcription);
-      } catch (error) {
-        console.error("Error with handleClick:", error);
-      }
-    };  
-
-
-   useEffect(() => {
-        console.log('transcription:', transcription);
-      }, [transcription]); 
 
   return (
     <div>
@@ -91,11 +65,9 @@ function AddRecord() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       
-      
-
       <p>Already have an account?</p>
 
-      <Link to="/transcribe"> <button onClick={handleTranscribeButton}> Transcribe local file</button></Link> 
+      <Link to="/transcribe"> <button> Transcribe local file</button></Link> 
     </div>
   );
 }
