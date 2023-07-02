@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
@@ -18,7 +19,6 @@ function AddRecord() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("recordPath", recordPath);
-   
 
     try {
       const response = await axios.post(
@@ -44,6 +44,24 @@ function AddRecord() {
     }
   };
 
+
+  const handleClick = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:5005/auth/transcribe",
+          {
+            headers: { authorization: `Bearer ${gotToken}` },
+          }
+        );
+        console.log("Responding!"); 
+        console.log(response); 
+        console.log(response.data); 
+      } catch (error) {
+        console.error("Error with handleClick:", error);
+      }}
+  
+
+
   return (
     <div>
       <h1>Add Record</h1>
@@ -63,8 +81,12 @@ function AddRecord() {
         <button type="submit">Submit your Record</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      
+      
 
       <p>Already have an account?</p>
+
+      <Link to="/transcribe"> <button onClick={handleClick}> Transcribe local file</button></Link> 
     </div>
   );
 }

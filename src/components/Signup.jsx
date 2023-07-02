@@ -48,7 +48,7 @@ function Signup() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have an account?</p>
-      <Link to={"/ProfilePage"}>Login</Link>
+      <Link to={"/login"}>Login</Link>
     </div>
   );
 }
