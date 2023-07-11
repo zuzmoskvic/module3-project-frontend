@@ -1,16 +1,28 @@
-import React from "react";
-//import { useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function RecordsPage() {
-  /*const location = useLocation();
-  const { requestBody } = location.state;*/
+const RecordPage = () => {
+  const [text, setText] = useState("");
+  const [fetching, setFetching] = useState(true);
+
+
+  // useEffect(() => {                               
+  //   axios
+  //     .post("http://localhost:5005/auth/addRecord")
+  //     .then((response) => {
+  //       setText(response.data.text);  
+  //       setFetching(false);
+  //     });
+    
+  // }, [] );
 
   return (
     <div>
-      <h1>Records Page</h1>
- 
-    </div>
-  );
-}
+    Transcription
+     {fetching && <p>Loading ...</p>}
+    <p>{text}</p>
+  </div>
+  )
+};
 
-export default RecordsPage;
+export default RecordPage;
