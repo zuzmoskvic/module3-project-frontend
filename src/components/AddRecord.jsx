@@ -21,21 +21,21 @@ function AddRecord() {
     formData.append("recordPath", recordPath);
 
     try {
-      // const response = await axios.post(
-      //   "http://localhost:5005/auth/addRecord",
-      //   formData,
-      //   {
-      //     headers: { authorization: `Bearer ${gotToken}` },
-      //   }
-      // );
-      // const { record } = response.data;
-      // const transcriptionId = response.data.transcriptionId;
-      // const generatedText = response.data.generatedText;
+      const response = await axios.post(
+        "http://localhost:5005/auth/addRecord",
+        formData,
+        {
+          headers: { authorization: `Bearer ${gotToken}` },
+        }
+      );
+      const { record } = response.data;
+      const transcriptionId = response.data.transcriptionId;
+      const generatedText = response.data.generatedText;
 
-      // // Handle the response data as needed
-      // console.log("Record:", record);
-      // console.log("Transcription ID:", transcriptionId);
-      // console.log("Generated Text:", generatedText);
+      // Handle the response data as needed
+      console.log("Record:", record);
+      console.log("Transcription ID:", transcriptionId);
+      console.log("Generated Text:", generatedText);
 
       navigate("/recordsPage");
     } catch (error) {

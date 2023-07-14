@@ -1,0 +1,30 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+function WritenTextPage() {
+    const [writtenText, setWrittenText] = useState("");
+    const [fetching, setFetching] = useState(true);
+
+    useEffect(() => {                               
+    axios
+        .get("http://localhost:5005/auth/write")
+        .then((response) => {
+            console.log(response.data);
+            const { text } = response.data;
+            setWrittenText(text);  
+            setFetching(false);
+        });
+    
+    }, [] );
+
+    return (
+    <div>
+        Written text:
+        {fetching && <p>Loading ...</p>}
+        <p> {writtenText}</p>
+
+    </div>
+    )
+    }
+
+export default WritenTextPage
