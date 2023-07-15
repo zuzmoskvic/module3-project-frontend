@@ -8,6 +8,7 @@ import ProfilePage from "./components/ProfilePage";
 import PrivatePage from "./components/PrivatePage";
 import Transcribe from "./components/Transcribe";
 import WritenTextPage from "./components/WritenTextPage";
+import ParentComponent from "./components/WritenTextPage";
 
 
 function App() {
