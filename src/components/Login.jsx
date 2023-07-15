@@ -11,7 +11,6 @@ function Login() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const navigate = useNavigate();
-  //getting thing from
   const { setToken, authenticateUser, setIsLoggedIn } = useContext(AuthContext);
   const handleLoginSubmit = async (e) => {
     e.preventDefault();

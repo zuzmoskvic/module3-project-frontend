@@ -1,75 +1,68 @@
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
-
- const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
+  const [transcription, setTranscription] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
   const handleTitle = (e) => setTitle(e.target.value);
   const handleRecordPath = (e) => setRecordPath(e.target.files[0]);
 
-
-  const handleAddRecord = (e) => {
+  const handleAddRecord = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-  formData.append("title", title);
-  formData.append("recordPath", recordPath);
+    formData.append("title", title);
+    formData.append("recordPath", recordPath);
 
-  //Gets the value of the inputs so you can check them in the console
- /* const titleValue = formData.get("title"); 
-const recordPathValue = formData.get("recordPath");
+    try {
+      const response = await axios.post(
+        "http://localhost:5005/auth/addRecord",
+        formData,
+        {
+          headers: { authorization: `Bearer ${gotToken}` },
+        }
+      );
+      const {data} = response;
 
-console.log(titleValue); 
-console.log(recordPathValue);
-*/
-console.log("here is our token", gotToken)
-    axios
-      .post(`http://localhost:5005/auth/addRecord`, formData,   {
-        headers: { authorization: `Bearer ${gotToken}` },
-      })
-      .then(() => {
-        navigate("/recordsPage");
-        
-       console.log()
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
-      
+      // this should be set up with setTransription; add a promise here?
+      navigate("/recordsPage", { state: data.text });
+
+    } catch (error) {
+      const errorDescription = error.response.data.message;
+      setErrorMessage(errorDescription);
+    }
   };
 
   return (
-    <div >
+    <div>
       <h1>Add Record</h1>
 
-      <form onSubmit={handleAddRecord} enctype="multipart/form-data">
+      <form onSubmit={handleAddRecord} encType="multipart/form-data">
         <label>Title</label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label>Record:</label>
         <input
           type="file"
-         
           name="recordPath"
-          
           id="recordPath"
-          
           onChange={handleRecordPath}
         />
 
         <button type="submit">Submit your Record</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
+      
       <p>Already have an account?</p>
-    
+
+      <Link to="/transcribe"> <button> Transcribe local file</button></Link> 
     </div>
   );
 }

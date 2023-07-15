@@ -9,13 +9,13 @@ import { AuthContextWrapper } from "./context/auth.context";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <React.StrictMode>
+  // <React.StrictMode>
     <AuthContextWrapper>
     <BrowserRouter>
         <App />
       </BrowserRouter>
       </AuthContextWrapper>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
