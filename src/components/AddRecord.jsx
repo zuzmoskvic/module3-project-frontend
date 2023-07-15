@@ -8,6 +8,7 @@ function AddRecord() {
 
   const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
+  const [transcription, setTranscription] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -28,15 +29,9 @@ function AddRecord() {
           headers: { authorization: `Bearer ${gotToken}` },
         }
       );
-      const { record } = response.data;
-      const transcriptionId = response.data.transcriptionId;
-      const generatedText = response.data.generatedText;
-
-      // Handle the response data as needed
-      console.log("Record:", record);
-      console.log("Transcription ID:", transcriptionId);
-      console.log("Generated Text:", generatedText);
-
+      const {data} = response;
+      console.log(data.text);
+      setTranscription(data);
       navigate("/recordsPage");
     } catch (error) {
       const errorDescription = error.response.data.message;

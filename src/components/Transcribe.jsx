@@ -19,10 +19,6 @@ function Transcribe() {
     
   }, [] );
 
-  //  useEffect(() => {     
-  //     console.log('Change useEffect 2:', transcription);
-  //  },[transcription]);
-
   return (
     <div>
       Transcription
