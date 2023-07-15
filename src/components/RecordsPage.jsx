@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useLocation } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const RecordPage = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const RecordPage = () => {
     <div>
     <p> This is the transcription:  </p>
     <p> {transcription} </p>
+    <Link to="/writedynamic"> <button> Write me something </button></Link> 
   </div>
   )
 };
