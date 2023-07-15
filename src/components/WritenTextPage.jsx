@@ -13,7 +13,6 @@ function WritenTextPage() {
             headers: { authorization: `Bearer ${gotToken}` }
           })
         .then((response) => {
-            // console.log(response.data);
             const { text } = response.data;
             setWrittenText(text);  
             setFetching(false);
@@ -32,18 +31,3 @@ function WritenTextPage() {
     }
 
     export default WritenTextPage;
-
-//     function ParentComponent() {
-//         return (
-//           <div>
-//             {/* Other content */}
-//             <WritenTextPage />
-  
-            
-//           </div>
-//         );
-//       }
-      
-// export default ParentComponent;
-
-
