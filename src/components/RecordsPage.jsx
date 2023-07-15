@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 const RecordPage = () => {
   const location = useLocation();
   const transcription = location.state;
-  // console.log(location);
-  // console.log(transcription);
 
   const [text, setText] = useState("");
   const [fetching, setFetching] = useState(true);
