@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
-
   const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
   const [transcription, setTranscription] = useState("");
@@ -30,9 +30,10 @@ function AddRecord() {
         }
       );
       const {data} = response;
-      console.log(data.text);
-      setTranscription(data);
-      navigate("/recordsPage");
+
+      // this should be set up with setTransription; add a promise here?
+      navigate("/recordsPage", { state: data.text });
+
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

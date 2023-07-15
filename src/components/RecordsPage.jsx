@@ -1,33 +1,23 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { useLocation } from "react-router-dom";
 
 const RecordPage = () => {
+  const location = useLocation();
+  const transcription = location.state;
+  // console.log(location);
+  // console.log(transcription);
+
   const [text, setText] = useState("");
   const [fetching, setFetching] = useState(true);
   const { user } = useContext(AuthContext);
  
-  useEffect(() => {                               
-    axios
-      .get(`http://localhost:5005/auth/addRecord`)
-      .then((response) => {
-        setText(response.data.text);  
-        console.log(response.data.text);
-        setFetching(false);
-      });
-    
-  }, [] );
-
-
-      
-
   return (
     <div>
-    {user}
-    Transcription
-     {fetching && <p>Loading ...</p>}
-    <p>{text}</p>
+    <p> This is the transcription:  </p>
+    <p> {transcription} </p>
   </div>
   )
 };
