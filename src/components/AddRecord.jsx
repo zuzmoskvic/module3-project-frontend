@@ -40,7 +40,6 @@ function AddRecord() {
     }
   };
 
-
   return (
     <div>
       <h1>Add Record</h1>

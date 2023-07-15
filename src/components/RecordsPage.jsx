@@ -17,7 +17,7 @@ const RecordPage = () => {
     <div>
     <p> This is the transcription:  </p>
     <p> {transcription} </p>
-    <Link to="/writedynamic"> <button> Write me something </button></Link> 
+    <Link to="/write"> <button> Write me something </button></Link> 
   </div>
   )
 };
