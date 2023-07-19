@@ -19,7 +19,10 @@ const AuthContextWrapper = (props) => {
         const { data } = await axios.get("http://localhost:5005/auth/verify", {
           headers: { authorization: `Bearer ${gotToken}` },
         });
-        setUser(data.user);
+        
+        const {user, userImage} = data
+        console.log("data from authenticate user", data)
+        setUser({...user, userImage: userImage});
         setIsLoading(false);
         setIsLoggedIn(true);
       } catch (err) {

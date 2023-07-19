@@ -4,25 +4,36 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function Signup() {
   const [email, setEmail] = useState("");
+  const [userImage, setUserImage] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+  const handleUserImage = (e) => setUserImage(e.target.files[0]);
 
   const handleSignup = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
+    //const requestBody = { email, password };
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("userImage", userImage);
+    formData.append("password", password);
+
+    
+
+    
+
 
     axios
-      .post(`http://localhost:5005/auth/signup`, requestBody)
+      .post(`http://localhost:5005/auth/signup`, formData)
       .then(() => {
-        navigate("/login", { state: { requestBody } });
+        navigate("/login");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log(error)
+        
       });
       
   };
@@ -31,9 +42,12 @@ function Signup() {
     <div className="LoginPage">
       <h1>Signup</h1>
 
-      <form onSubmit={handleSignup}>
+      <form onSubmit={handleSignup} enctype="multipart/form-data">
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
+
+        <label>User Image</label>
+        <input type="file" name="userImage"  onChange={handleUserImage} />
 
         <label>Password:</label>
         <input
@@ -43,7 +57,7 @@ function Signup() {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button type="submit">Sign up</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
