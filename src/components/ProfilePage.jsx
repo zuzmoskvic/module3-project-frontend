@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
   const { logOutUser, user, removeToken, setUser, setIsLoggedIn } = useContext(AuthContext);
@@ -47,6 +48,7 @@ function ProfilePage() {
       </div>
       <button onClick={handleDeleteAccount}>Delete Account</button>
       <button onClick={logOutUser}>Logout</button>
+     <Link to={"/editUser"}><button>Edit your user</button></Link>
     </div>
   );
 }

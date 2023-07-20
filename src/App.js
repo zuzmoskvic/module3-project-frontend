@@ -8,6 +8,7 @@ import ProfilePage from "./components/ProfilePage";
 import PrivatePage from "./components/PrivatePage";
 import Transcribe from "./components/Transcribe";
 import WritenTextPage from "./components/WritenTextPage";
+import EditUser from "./components/EditUser";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/transcribe"  element={<Transcribe />}/>
         <Route path="/recordsPage" element={<RecordsPage />} />
         <Route path="/write" element={<WritenTextPage />} />
+        <Route path="/editUser" element={<EditUser />} />
        
         <Route
           path="/profile"
