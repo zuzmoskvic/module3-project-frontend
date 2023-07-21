@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 function ProfilePage() {
   const { logOutUser, user, removeToken, setUser, setIsLoggedIn } = useContext(AuthContext);
   console.log(user);
-  const {id} = useParams();
+ const userId = user._id
+ console.log(userId, "userId??")
+
+  console.log(user, "user from profile")
 
   const navigate = useNavigate();
   
@@ -48,7 +51,7 @@ function ProfilePage() {
       </div>
       <button onClick={handleDeleteAccount}>Delete Account</button>
       <button onClick={logOutUser}>Logout</button>
-     <Link to={"/editUser"}><button>Edit your user</button></Link>
+     <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>
     </div>
   );
 }

@@ -22,7 +22,7 @@ function App() {
         <Route path="/transcribe"  element={<Transcribe />}/>
         <Route path="/recordsPage" element={<RecordsPage />} />
         <Route path="/write" element={<WritenTextPage />} />
-        <Route path="/editUser" element={<EditUser />} />
+        <Route path="/editUser/:userId" element={<EditUser />} />
        
         <Route
           path="/profile"

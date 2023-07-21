@@ -15,14 +15,15 @@ function EditUser() {
 
   useEffect(() => {
     try {
+      
       const gotToken = localStorage.getItem("authToken");
       if (gotToken) {
         axios
-          .get(`http://localhost:5005/auth/editUser/${userId}`, {
+          .post(`http://localhost:5005/auth/editUser/${userId}`,{
             headers: { authorization: `Bearer ${gotToken}` },
           })
           .then((response) => {
-            const { email, userImage } = response.data;
+            const { email } = response.data;
             setEmail(email);
             setUserImage(userImage);
           })
@@ -38,20 +39,20 @@ function EditUser() {
   }, [userId]);
 
   const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-  const handleUserImage = (e) => setUserImage(e.target.files[0]);
+  /*const handlePassword = (e) => setPassword(e.target.value);
+  const handleUserImage = (e) => setUserImage(e.target.files[0]);*/
 
   const handleEditUser = (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    /*const formData = new FormData();
     formData.append("email", email);
     formData.append("userImage", userImage);
-    formData.append("password", password);
-
+    formData.append("password", password);*/
+const userToEdit = {email}
     try {
       const gotToken = localStorage.getItem("authToken");
       axios
-        .put(`http://localhost:5005/auth/editUser/${userId}`, formData, {
+        .post(`http://localhost:5005/auth/editUser/${userId}`, userToEdit, {
           headers: { authorization: `Bearer ${gotToken}` },
         })
         .then(() => {
@@ -75,16 +76,7 @@ function EditUser() {
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>User Image</label>
-        <input type="file" name="userImage" onChange={handleUserImage} />
-
-        <label>New Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        
 
         <button type="submit">Save Changes</button>
       </form>
