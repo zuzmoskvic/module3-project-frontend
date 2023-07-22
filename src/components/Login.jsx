@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { API_URL } from "../config/config.index";
 
 function Login() {
  
@@ -17,7 +18,7 @@ function Login() {
     try {
       const userToLogin = { email, password };
       const { data } = await axios.post(
-        `http://localhost:5005/auth/login`,
+        `${API_URL}/auth/login`,
         userToLogin
       );
       console.log("JWT token", data.authToken);

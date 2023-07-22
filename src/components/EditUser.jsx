@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from "../context/auth.context";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from '../config/config.index';
 
 function EditUser() {
   const {  user } = useContext(AuthContext);
@@ -20,7 +21,7 @@ function EditUser() {
       const gotToken = localStorage.getItem("authToken");
       if (gotToken) {
         axios
-          .get(`https://localhost:5005/auth/editUser/${userId}`,{
+          .get(`${API_URL}/auth/editUser/${userId}`,{
             headers: { authorization: `Bearer ${gotToken}` },
           })
           .then((response) => {
@@ -44,7 +45,7 @@ function EditUser() {
 
 axios
 .put
-(`http://localhost:5005/auth/editUser/${userId}`, {email})
+(`${API_URL}/auth/editUser/${userId}`, {email})
 .then((response) => {
   console.log(response.data)
 })

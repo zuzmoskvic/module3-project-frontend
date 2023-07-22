@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { API_URL } from "../config/config.index";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 function Signup() {
   const [email, setEmail] = useState("");
   const [userImage, setUserImage] = useState("");
@@ -27,7 +29,7 @@ function Signup() {
 
 
     axios
-      .post(`http://localhost:5005/auth/signup`, formData)
+      .post(`${API_URL}/auth/signup`, formData)
       .then(() => {
         navigate("/login");
       })

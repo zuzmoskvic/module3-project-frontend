@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/config.index";
 
 function ProfilePage() {
   const { logOutUser, user, removeToken, setUser, setIsLoggedIn } = useContext(AuthContext);
@@ -23,7 +24,7 @@ function ProfilePage() {
       try {
         const gotToken = localStorage.getItem("authToken");
         if (gotToken) {
-          await axios.delete("http://localhost:5005/profile", {
+          await axios.delete(`${API_URL}/profile`, {
             headers: { authorization: `Bearer ${gotToken}` },
           });
           removeToken();

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { API_URL } from "../config/config.index";
 
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
@@ -23,7 +24,7 @@ function AddRecord() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5005/auth/addRecord",
+        `${API_URL}/auth/addRecord`,
         formData,
         {
           headers: { authorization: `Bearer ${gotToken}` },

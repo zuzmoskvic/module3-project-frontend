@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { API_URL } from "../config/config.index";
 
 function WritenTextPage() {
     const gotToken = localStorage.getItem("authToken");
@@ -8,7 +9,7 @@ function WritenTextPage() {
 
     useEffect(() => {                               
     axios
-        .get("http://localhost:5005/auth/write",
+        .get(`${API_URL}/auth/write`,
         {
             headers: { authorization: `Bearer ${gotToken}` }
           })

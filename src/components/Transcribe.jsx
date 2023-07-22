@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config/config.index";
 
 function Transcribe() {
   const [transcription, setTranscription] = useState("");
@@ -9,7 +10,7 @@ function Transcribe() {
 
   useEffect(() => {                               
     axios
-      .get("http://localhost:5005/auth/transcribe")
+      .get(`${API_URL}/auth/transcribe`)
       .then((response) => {
         console.log(response.data);
         const { text } = response.data;
