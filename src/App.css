@@ -7,7 +7,9 @@
 #fefdfc lighter white*/
 
 /* General styling */
-.App{  
+
+body{
+  background-color: #e6639d;
 }
 
 main{
