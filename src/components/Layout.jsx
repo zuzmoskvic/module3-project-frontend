@@ -5,7 +5,7 @@ function Layout({ children }) {
           <body>
             <main>
             <nav>
-            <div className="app-title"> Too Lazy to Type</div>
+            <div className="app-title"> <img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div>
             <ul className="nav-links" >
               <li><a className="nav-link" href="/">Home</a></li>
               <li><a className="nav-link" href="/login">Login</a></li>

@@ -43,14 +43,12 @@ nav{
   padding: 0 50px;
   margin: 20px;
   border-bottom: #242b32 2px solid;
-  /* border-radius: 20px; */
-
 }
+
 .app-title{
   color: black;
   font-size: 20px;
   font-weight: bolder;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .nav-links{
@@ -62,13 +60,13 @@ nav{
 
 /* Hover animation for nav bar links */
 .nav-link, .special-nav-link {
- display: inline-block;
- position: relative;
- color: #34c3fa;
- padding: 0 10px;
- text-decoration: none;
- color: #242b32;
- font-weight: bold;
+  display: inline-block;
+  position: relative;
+  color: #34c3fa;
+  padding: 0 10px;
+  text-decoration: none;
+  color: #242b32;
+  font-weight: bold;
 }
 
 .special-nav-link{
@@ -98,6 +96,9 @@ nav{
   background-color: #34c3fa;
 }
 
+.star-small{
+  height: 20px;
+}
 
 /*Home page*/
 .home-maindiv{
@@ -113,7 +114,14 @@ nav{
 
 .home-h1{
   font-size: 50px;
+  margin: 10px;
+}
+
+.home-h2{
+  font-size: 15px;
   margin-top: 10px;
+  padding: 10px;
+  text-align: center;
 }
 
 .star{
@@ -127,7 +135,6 @@ nav{
   height: 35px;
   color: #242b32;
   font-weight: bolder;
-  box-shadow: none;
   border: #242b32 2px solid;
   box-shadow: 10px 10px 0px 0px #34c3fa;
   align-self: center;
