@@ -7,10 +7,13 @@ import Layout from "./Layout";
 function Transcribe() {
   const [transcription, setTranscription] = useState("");
   const [fetching, setFetching] = useState(true);
-
+  const gotToken = localStorage.getItem("authToken");
+  
   useEffect(() => {                               
     axios
-      .get(`${API_URL}/auth/transcribe`)
+      .get(`${API_URL}/auth/transcribe`, {
+        headers: { authorization: `Bearer ${gotToken}` },
+      })
       .then((response) => {
         console.log(response.data);
         const { text } = response.data;
