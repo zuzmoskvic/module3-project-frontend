@@ -22,7 +22,6 @@ function ProfilePage() {
     })
     .then((response) => {
       setEmail(response.data.email);
-      // console.log(response.data);
       setImageUrl(response.data.userImage);
     })
     .catch((error) => console.log(error));
@@ -52,27 +51,31 @@ function ProfilePage() {
 
   return (
     <Layout>
-      <div>
-        <div>
+      <div className="profile-maindiv">
+        <div className="profile-leftdiv">
           <h1>Welcome to your profile</h1>
+
+          <div>
+            <p>User email: { email }</p>
+            <p>User photo</p>
+            <img src={imageUrl} alt="user profile" className="profile-image"/>
+          </div>
+
+          <div className="profile-leftdiv-buttonsdiv">
+           <button className="blue-button" onClick={ handleDeleteAccount }>Delete Account</button> 
+            <button className="blue-button"  onClick={ logOutUser }>Logout</button>
+          </div>
         </div>
 
-        <div>
-          <h3>User photo</h3>
-          <img src={imageUrl} alt="user profile" className="profile-image"/>
+       
+
+        <div className="profile-rightdiv">
+            {/* <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link> */}
+            <Link to={ "/addRecord" }><button className="pink-button">Add record</button></Link>
+            <Link to={ "/transcribe" }><button className="pink-button">Add transcribe</button></Link>
+            <Link to={ "/record" }><button className="pink-button">Record</button></Link>
         </div>
 
-        <div>
-          {/* <h3>User email: { user && user.email }</h3> */}
-          <h3>User email: { email }</h3>
-        </div>
-
-        <button onClick={ handleDeleteAccount }>Delete Account</button>
-        <button onClick={ logOutUser }>Logout</button>
-        {/* <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link> */}
-        <Link to={ "/addRecord" }><button>Add record</button></Link>
-        <Link to={ "/transcribe" }><button>Add transcribe</button></Link>
-        <Link to={ "/record" }><button>Record</button></Link>
       </div>
     </Layout>
   );

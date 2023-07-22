@@ -140,6 +140,7 @@ nav{
   border: #242b32 2px solid;
   box-shadow: 10px 10px 0px 0px #34c3fa;
   align-self: center;
+  margin: 10px;
 }
 
 .pink-button:hover{
@@ -165,4 +166,42 @@ nav{
 .profile-image{
   height: 150px;
   border-radius: 50%;
+}
+
+.blue-button{
+  background-color: #fcfaf9;
+  width: 200px;
+  height: 35px;
+  color: #242b32;
+  font-weight: bolder;
+  border: #242b32 2px solid;
+  box-shadow: 10px 10px 0px 0px #242b32;
+  align-self: center;
+  margin: 10px;
+}
+
+.blue-button:hover{
+  background-color: #34c3fa;
+  color: #fcfaf9;
+}
+
+.profile-maindiv{
+  display: flex;
+}
+
+.profile-leftdiv{
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+}
+
+.profile-rightdiv{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile-leftdiv-buttonsdiv{
+  display: flex;
+  flex-direction: row;
 }
