@@ -54,14 +54,19 @@ nav{
 }
 
 /* Hover animation for nav bar links */
-.nav-link {
+.nav-link, .special-nav-link {
  display: inline-block;
  position: relative;
- color: #e6639d;
+ color: #34c3fa;
  padding: 0 10px;
  text-decoration: none;
  color: #242b32;
  font-weight: bold;
+}
+
+.special-nav-link{
+  background-color: #e6639d;
+  color: #fcfaf9;
 }
 
 .nav-link:after {
@@ -72,7 +77,7 @@ nav{
   height: 4px;
   bottom: 0;
   left: 0;
-  background-color: #e6639d;
+  background-color: #34c3fa;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -82,6 +87,11 @@ nav{
   transform-origin: bottom left;
 }
 
+.special-nav-link:hover {
+  background-color: #34c3fa;
+}
+
+
 /*Home page*/
 .home-maindiv{
   display: flex;
@@ -89,18 +99,21 @@ nav{
 
 .home-leftdiv{
   width: 55%;
+  margin-top: 10px;
 }
 
 .home-h1{
   font-size: 50px;
+  margin-top: 10px;
 }
 
 .star{
   width: 45px;
+  margin-top: 10px;
 }
 
 .home-rightdiv{
-  /* width: 30%; */
+  margin-top: 10px;
   border-radius: 20px;
   border: #242b32 2px solid;
   padding: 20px;
