@@ -1,9 +1,6 @@
 function Layout({ children }) {
     return (
-      <div>
-
-          <body>
-            <main>
+          <main>
             <nav>
             <div className="app-title"> <img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div>
             <ul className="nav-links" >
@@ -16,9 +13,7 @@ function Layout({ children }) {
             </ul>
             </nav>
               {children}
-            </main>
-          </body>    
-      </div>
+          </main>    
     )
   }
 

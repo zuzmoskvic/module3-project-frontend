@@ -22,7 +22,7 @@ function ProfilePage() {
     })
     .then((response) => {
       setEmail(response.data.email);
-      console.log(response.data);
+      // console.log(response.data);
       setImageUrl(response.data.userImage);
     })
     .catch((error) => console.log(error));
