@@ -39,22 +39,23 @@ function Signup() {
     <div className="LoginPage">
       <h1>Signup</h1>
 
-      <form onSubmit={handleSignup} enctype="multipart/form-data">
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <form className="login-form" onSubmit={handleSignup} enctype="multipart/form-data">
+        <label className="login-label">Email:</label>
+        <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>User Image</label>
-        <input type="file" name="userImage"  onChange={handleUserImage} />
+        <label className="login-label">User Image</label>
+        <input className="login-input" type="file" name="userImage"  onChange={handleUserImage} />
 
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword}/>
+        <label className="login-label">Password:</label>
+        <input className="login-input" type="password" name="password" value={password} onChange={handlePassword}/>
 
-        <button type="submit">Sign up</button>
+        <button  className="pink-button" type="submit">Sign up</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have an account?</p>
-      <Link to={"/login"}>Login</Link>
+      <Link to={ "/login" }>Login</Link>
+
     </div>
     </Layout>
   );
