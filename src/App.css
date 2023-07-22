@@ -6,15 +6,17 @@
 #fcfaf9 white
 #fefdfc lighter white*/
 
+/* General styling */
 .App{  
 }
 
 body{
-  margin: 40px 20px 40px 20px;
+  margin: 40px auto;
   min-height: 100px;
   font-family: 'Space Grotesk';
   font-size: 12px;
   background-color: #e6639d;
+  max-width: 1000px;
 }
 
 main{
@@ -23,6 +25,11 @@ main{
   height: 500px;
   padding: 0 50px;
   border: #242b32 2px solid;
+}
+
+button{
+  font-family: 'Space Grotesk';
+  font-size: 12px;
 }
 
 /* Styling nav bar */
@@ -100,6 +107,8 @@ nav{
 .home-leftdiv{
   width: 55%;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-h1{
@@ -112,6 +121,23 @@ nav{
   margin-top: 10px;
 }
 
+.pink-button{
+  background-color: #fcfaf9;
+  width: 300px;
+  height: 35px;
+  color: #242b32;
+  font-weight: bolder;
+  box-shadow: none;
+  border: #242b32 2px solid;
+  box-shadow: 10px 10px 0px 0px #34c3fa;
+  align-self: center;
+}
+
+.pink-button:hover{
+  background-color: #e6639d;
+  color: #fcfaf9;
+}
+
 .home-rightdiv{
   margin-top: 10px;
   border-radius: 20px;
@@ -119,7 +145,7 @@ nav{
   padding: 20px;
   background-color: #fefdfc;
   text-align: center;
-  box-shadow: 20px 20px 0px 0px #34c3fa;
+  box-shadow: 10px 10px 0px 0px #34c3fa;
 }
 
 .illustration{

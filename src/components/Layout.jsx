@@ -11,6 +11,7 @@ function Layout({ children }) {
               <li><a className="nav-link" href="/login">Login</a></li>
               <li><a className="nav-link" href="/signup">Register</a></li>
               <li><a className="nav-link" href="/">Profile</a></li>
+              {/* TO DO - replace this link */}
               <li><a className="special-nav-link" href="/">Create</a></li>
             </ul>
             </nav>
