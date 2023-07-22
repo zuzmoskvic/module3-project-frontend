@@ -28,15 +28,7 @@ function App() {
         <Route path="/record" element={<Recorder />} />
         <Route path="/display" element={<Display />} />
         <Route path="/editUser/:userId" element={<EditUser />} />
-       
-        <Route
-          path="/profile"
-          element={
-            <PrivatePage>
-              <ProfilePage />
-            </PrivatePage>
-          }
-        />
+        <Route path="/profile" element={<PrivatePage> <ProfilePage /></PrivatePage>}/>
       </Routes>
     </div>
   );

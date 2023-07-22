@@ -19,7 +19,7 @@ body{
 main{
   border-radius: 20px;
   background-color: #fcfaf9;
-  height: 600px;
+  height: 500px;
   padding: 0 50px;
   border: #242b32 2px solid;
 }
@@ -79,4 +79,17 @@ nav{
 .nav-link:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/*Home page*/
+.home-leftdiv{
+  width: 60%;
+}
+
+.home-h1{
+  font-size: 50px;
+}
+
+.star{
+  width: 45px;
 }
