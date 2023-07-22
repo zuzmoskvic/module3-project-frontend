@@ -10,6 +10,9 @@ import Transcribe from "./components/Transcribe";
 import WritenTextPage from "./components/WritenTextPage";
 import EditUser from "./components/EditUser";
 
+import Recorder from "./components/Recorder";
+import Display from "./components/Display";
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +25,8 @@ function App() {
         <Route path="/transcribe"  element={<Transcribe />}/>
         <Route path="/recordsPage" element={<RecordsPage />} />
         <Route path="/write" element={<WritenTextPage />} />
+        <Route path="/record" element={<Recorder />} />
+        <Route path="/display" element={<Display />} />
         <Route path="/editUser/:userId" element={<EditUser />} />
        
         <Route

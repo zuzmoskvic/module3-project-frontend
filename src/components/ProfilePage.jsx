@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
+import Layout from "./Layout";
 
 function ProfilePage() {
   const { logOutUser, user, removeToken, setUser, setIsLoggedIn } = useContext(AuthContext);
@@ -39,6 +40,7 @@ function ProfilePage() {
   };
 
   return (
+    <Layout>
     <div>
       <div>
         <h1>ProfilePage</h1>
@@ -56,6 +58,7 @@ function ProfilePage() {
      <Link to={"/addRecord"}><button>Add record</button></Link>
      <Link to={"/transcribe"}><button>Add transcribe</button></Link>
     </div>
+    </Layout>
   );
 }
 

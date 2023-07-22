@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
+import Layout from "./Layout";
 
 function Transcribe() {
   const [transcription, setTranscription] = useState("");
@@ -21,6 +22,7 @@ function Transcribe() {
   }, [] );
 
   return (
+    <Layout>
     <div>
       Transcription
        {fetching && <p>Loading ...</p>}
@@ -28,6 +30,7 @@ function Transcribe() {
 
       <Link to="/write"> <button> Write me something </button></Link> 
     </div>
+    </Layout>
   )
 }
 

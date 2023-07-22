@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { API_URL } from "../config/config.index";
+import Layout from "./Layout";
 
 function Login() {
  
@@ -34,6 +35,7 @@ function Login() {
   };
 
   return (
+    <Layout>
     <div className="LoginPage">
       <h1>Login</h1>
 
@@ -63,6 +65,7 @@ function Login() {
       <p>Don't have an account yet?</p>
       <Link to={"/"}> Sign Up</Link>
     </div>
+    </Layout>
   );
 }
 

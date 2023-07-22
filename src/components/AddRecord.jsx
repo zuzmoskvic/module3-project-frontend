@@ -4,6 +4,7 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { API_URL } from "../config/config.index";
+import Layout from "./Layout";
 
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
@@ -42,6 +43,7 @@ function AddRecord() {
   };
 
   return (
+    <Layout>
     <div>
       <h1>Add Record</h1>
 
@@ -65,6 +67,7 @@ function AddRecord() {
 
       <Link to="/transcribe"> <button> Transcribe local file</button></Link> 
     </div>
+    </Layout>
   );
 }
 
