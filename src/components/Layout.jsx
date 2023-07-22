@@ -16,11 +16,8 @@ function Layout({ children }) {
               {children}
             </main>
           </body>    
-
       </div>
     )
   }
 
-
-
-  export default Layout
+export default Layout

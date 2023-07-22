@@ -8,8 +8,6 @@ function Home() {
          <p> Home</p>
         </Layout>
 
-
-     
     </div>
   )
 }

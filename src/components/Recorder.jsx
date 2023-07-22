@@ -33,7 +33,6 @@ function Recorder() {
     uploadAudioFile(blob);
   };
 
-
   return (
     <Layout>
     <div>

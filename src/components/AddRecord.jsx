@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {Link} from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 

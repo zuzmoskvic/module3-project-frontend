@@ -24,11 +24,6 @@ function Signup() {
     formData.append("userImage", userImage);
     formData.append("password", password);
 
-    
-
-    
-
-
     axios
       .post(`${API_URL}/auth/signup`, formData)
       .then(() => {
