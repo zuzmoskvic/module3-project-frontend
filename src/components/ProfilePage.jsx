@@ -53,6 +53,8 @@ function ProfilePage() {
       <button onClick={handleDeleteAccount}>Delete Account</button>
       <button onClick={logOutUser}>Logout</button>
      <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>
+     <Link to={"/addRecord"}><button>Add record</button></Link>
+     <Link to={"/transcribe"}><button>Add transcribe</button></Link>
     </div>
   );
 }
