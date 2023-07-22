@@ -4,13 +4,14 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function EditUser() {
-  const { logOutUser, user, removeToken, setUser, setIsLoggedIn } = useContext(AuthContext);
+  const {  user } = useContext(AuthContext);
   const { userId } = useParams();
+  console.log(userId, "userId")
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [userImage, setUserImage] = useState("");
-  const [password, setPassword] = useState("");
+  //const [userImage, setUserImage] = useState("");
+  //const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   useEffect(() => {
@@ -19,13 +20,11 @@ function EditUser() {
       const gotToken = localStorage.getItem("authToken");
       if (gotToken) {
         axios
-          .post(`http://localhost:5005/auth/editUser/${userId}`,{
+          .get(`https://localhost:5005/auth/editUser/${userId}`,{
             headers: { authorization: `Bearer ${gotToken}` },
           })
           .then((response) => {
-            const { email } = response.data;
-            setEmail(email);
-            setUserImage(userImage);
+            setEmail(response.data.email);
           })
           .catch((error) => {
             console.log(error);
@@ -39,16 +38,20 @@ function EditUser() {
   }, [userId]);
 
   const handleEmail = (e) => setEmail(e.target.value);
-  /*const handlePassword = (e) => setPassword(e.target.value);
-  const handleUserImage = (e) => setUserImage(e.target.files[0]);*/
 
   const handleEditUser = (e) => {
     e.preventDefault();
-    /*const formData = new FormData();
-    formData.append("email", email);
-    formData.append("userImage", userImage);
-    formData.append("password", password);*/
-const userToEdit = {email}
+
+axios
+.put
+(`http://localhost:5005/auth/editUser/${userId}`, {email})
+.then((response) => {
+  console.log(response.data)
+})
+/*const userToEdit = {email}
+
+console.log(userToEdit, "usertoedit")
+
     try {
       const gotToken = localStorage.getItem("authToken");
       axios
@@ -66,7 +69,7 @@ const userToEdit = {email}
       console.log(error);
       setErrorMessage("There was an error editing the user. Please try again.");
     }
-  };
+  };*/
 
   return (
     <div className="EditUserPage">
@@ -87,6 +90,6 @@ const userToEdit = {email}
       </Link>
     </div>
   );
-}
+}}
 
-export default EditUser;
+export default EditUser
