@@ -26,7 +26,7 @@ function WritenTextPage() {
         <Layout>
             <div>
                 Written text:
-                {fetching ? <p>Loading ...</p> : <p>{writtenText}</p>}
+                {fetching ? <p>Loading ...</p> : <p>{ writtenText }</p>}
             </div>
         </Layout>
     )

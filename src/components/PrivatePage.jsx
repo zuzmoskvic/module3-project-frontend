@@ -8,7 +8,7 @@ function PrivatePage({ children }) {
     return <p>Loading...</p>;
   }
   if (!isLoggedIn) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
   return children;
 }

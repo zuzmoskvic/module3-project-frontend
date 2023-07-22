@@ -31,9 +31,7 @@ function Signup() {
       })
       .catch((error) => {
         console.log(error)
-        
       });
-      
   };
 
   return (
@@ -49,12 +47,7 @@ function Signup() {
         <input type="file" name="userImage"  onChange={handleUserImage} />
 
         <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <input type="password" name="password" value={password} onChange={handlePassword}/>
 
         <button type="submit">Sign up</button>
       </form>

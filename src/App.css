@@ -158,3 +158,9 @@ nav{
 .illustration{
   width: 300px;
 }
+
+/* Profile page styling */
+.profile-image{
+  height: 150px;
+  border-radius: 50%;
+}

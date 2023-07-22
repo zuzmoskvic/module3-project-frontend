@@ -6,7 +6,6 @@ import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 
 function Login() {
- 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -14,15 +13,13 @@ function Login() {
   const handlePassword = (e) => setPassword(e.target.value);
   const navigate = useNavigate();
   const { setToken, authenticateUser, setIsLoggedIn } = useContext(AuthContext);
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
       const userToLogin = { email, password };
-      const { data } = await axios.post(
-        `${API_URL}/auth/login`,
-        userToLogin
-      );
-      console.log("JWT token", data.authToken);
+      const { data } = await axios.post(`${API_URL}/auth/login`, userToLogin);
+      // console.log("JWT token", data.authToken);
       const actualToken = data.authToken;
       setToken(actualToken);
       authenticateUser();
@@ -39,31 +36,19 @@ function Login() {
     <div className="LoginPage">
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form onSubmit={ handleLoginSubmit }>
         <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          autoComplete="email"
-          onChange={handleEmail}
-        />
+        <input type="email" name="email" value={ email } autoComplete="email" onChange={ handleEmail }/>
 
         <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          autoComplete="current-password"
-          onChange={handlePassword}
-        />
+        <input type="password" name="password" value={ password}  autoComplete="current-password" onChange={ handlePassword }/>
 
         <button type="submit">Login</button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{ errorMessage }</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/"}> Sign Up</Link>
+      <Link to={ "/signup" }> Register</Link>
     </div>
     </Layout>
   );

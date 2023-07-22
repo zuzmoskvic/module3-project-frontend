@@ -16,9 +16,7 @@ function Display() {
       setDisplayedText(res.data);
       setFetching(false);
     })
-
     .catch((error) => console.log(error));
-
   }, [] );
 
   return (
