@@ -4,6 +4,7 @@
 #e6639d pink 
 #242b32 black-ish 
 #fcfaf9 white*/
+
 .App{  
 }
 
@@ -20,6 +21,7 @@ main{
   background-color: #fcfaf9;
   height: 600px;
   padding: 0 50px;
+  border: #242b32 2px solid;
 }
 
 /* Styling nav bar */
