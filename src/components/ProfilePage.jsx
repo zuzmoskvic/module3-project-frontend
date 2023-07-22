@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
+import Display from "./Display"
 
 function ProfilePage() {
   const gotToken = localStorage.getItem("authToken");
@@ -74,7 +75,11 @@ function ProfilePage() {
             <Link to={ "/addRecord" }><button className="pink-button">Add record</button></Link>
             <Link to={ "/transcribe" }><button className="pink-button">Add transcribe</button></Link>
             <Link to={ "/record" }><button className="pink-button">Record</button></Link>
+
+            <p>Add display of existing texts here .... </p>
+            <Display/>
         </div>
+
 
       </div>
     </Layout>

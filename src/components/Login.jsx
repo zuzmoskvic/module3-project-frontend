@@ -33,22 +33,22 @@ function Login() {
 
   return (
     <Layout>
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div  className="LoginPage">
+        <h1>Login</h1>
 
-      <form onSubmit={ handleLoginSubmit }>
-        <label>Email:</label>
-        <input type="email" name="email" value={ email } autoComplete="email" onChange={ handleEmail }/>
+        <form className="login-form" onSubmit={ handleLoginSubmit }>
+          <label className="login-label">Email address</label>
+          <input className="login-input" type="email" name="email" value={ email } autoComplete="email" onChange={ handleEmail }/>
 
-        <label>Password:</label>
-        <input type="password" name="password" value={ password}  autoComplete="current-password" onChange={ handlePassword }/>
+          <label className="login-label">Password </label>
+          <input className="login-input" type="password" name="password" value={ password}  autoComplete="current-password" onChange={ handlePassword }/>
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{ errorMessage }</p>}
+          <button className="pink-button" type="submit">Login</button>
+        </form>
+        {errorMessage && <p className="error-message">{ errorMessage }</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={ "/signup" }> Register</Link>
+        <p>Don't have an account yet?</p>
+        <Link to={ "/signup" }> Create account</Link>
     </div>
     </Layout>
   );

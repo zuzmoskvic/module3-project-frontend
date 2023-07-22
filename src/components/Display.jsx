@@ -20,7 +20,7 @@ function Display() {
   }, [] );
 
   return (
-    <Layout>
+    // <Layout>
     <div>
        View all saved records:
 
@@ -28,7 +28,7 @@ function Display() {
        Transcript:
        { fetching ? <p>Loading ...</p> : <p> { displayedText } </p>}
     </div>
-    </Layout>
+    // </Layout>
   )
 }
 
