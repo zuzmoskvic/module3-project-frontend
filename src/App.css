@@ -10,7 +10,7 @@
 .App{  
 }
 
-body{
+main{
   margin: 40px auto;
   min-height: 100px;
   font-family: 'Space Grotesk';
