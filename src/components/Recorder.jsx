@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 import Layout from "./Layout";
+import { useNavigate } from "react-router-dom";
 
 function Recorder() {
     const recorderControls = useAudioRecorder();
+    const navigate = useNavigate();
 
     const uploadAudioFile = async (blob) => {
       try {
@@ -11,12 +13,15 @@ function Recorder() {
         const formData = new FormData();
 
         formData.append('audio', blob, 'recorded.wav');
-        await axios.post('http://localhost:5005/auth/record',
+        const response =  await axios.post('http://localhost:5005/auth/record',
           formData,
           {
             headers: { authorization: `Bearer ${gotToken}` },
           })
-        console.log('File uploaded successfully');
+        // console.log('File uploaded successfully');
+         const {data} = response;
+        // console.log(response);
+        navigate("/profile");
       } catch (error) {
         console.error('Error uploading file:', error);
       }
