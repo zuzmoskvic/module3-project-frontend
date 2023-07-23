@@ -15,11 +15,11 @@ const RecordPage = () => {
  
   return (
     <Layout>
-    <div>
-    <p> This is the transcription:  </p>
-    <p> {transcription} </p>
-    <Link to="/write"> <button> Write me something </button></Link> 
-  </div>
+      <div>
+        <p> This is the transcription:  </p>
+        <p> {transcription} </p>
+        <Link to="/write"> <button className="pink-button"> Write me something </button></Link> 
+      </div>
   </Layout>
   )
 };

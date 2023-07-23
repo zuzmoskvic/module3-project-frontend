@@ -22,10 +22,12 @@ function Display() {
   return (
     // <Layout>
     <div>
-       View all saved records:
+       <p>View all saved records</p>
+       <p> *** This is only displaying the last record</p>
+       <p>Transcript</p>
+       { fetching ? <p>Loading ...</p> : <p> { displayedText } </p>}
 
-      *** Last record
-       Transcript:
+       <p>Written text:</p>
        { fetching ? <p>Loading ...</p> : <p> { displayedText } </p>}
     </div>
     // </Layout>
