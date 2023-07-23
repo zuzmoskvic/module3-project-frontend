@@ -19,9 +19,6 @@ main{
   font-size: 12px;
   background-color: #e6639d;
   max-width: 1000px;
-}
-
-main{
   border-radius: 20px;
   background-color: #fcfaf9;
   height: 500px;
@@ -222,6 +219,7 @@ nav{
   border: #242b32 2px solid;
   align-self: center;
   margin: 2px;
+  margin-bottom: 10px;
 }
 
 .login-input:focus{
@@ -237,4 +235,18 @@ nav{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.login-link{
+  text-decoration: none;
+  font-weight: bold;
+  color: #e6639d;
+  padding: 0 10px;
+}
+
+.login-link:hover{
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #e6639d;
+  color: #fcfaf9;
 }
