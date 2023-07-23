@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_URL } from '../config/config.index';
 
 function DeleteUser() {
-  const { user, setUser, removeToken, isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   const { userId } = useParams();
 
   const gotToken = localStorage.getItem("authToken");
@@ -20,8 +20,7 @@ function DeleteUser() {
           .get(`${API_URL}/auth/deleteUser/${userId}`, {
             headers: { authorization: `Bearer ${gotToken}` },
           })
-          .then((response) => {
-            console.log(response.data.email, "response DELETEUSER FRONTEND");
+          .then(() => {
           })
           .catch((error) => {
             console.log(error);
@@ -44,7 +43,7 @@ function DeleteUser() {
           headers: { authorization: `Bearer ${gotToken}` },
         });
         
-        navigate("/login");
+        navigate("/signup");
       } catch (err) {
         console.log("There was an error while eliminating the user account", err);
       }
@@ -55,6 +54,7 @@ function DeleteUser() {
     <div>
       
       <button onClick={handleDeleteAccount}>Delete Account</button>
+
     </div>
   );
 }

@@ -12,8 +12,8 @@ function EditUser() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  //const [userImage, setUserImage] = useState("");
-  //const [password, setPassword] = useState("");
+  const [userImage, setUserImage] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const gotToken = localStorage.getItem("authToken")
@@ -42,25 +42,21 @@ function EditUser() {
     }
   }, [userId]);
 
-  /*const handleEmail = (e) => setEmail(e.target.value);
-
-  const handleEditUser = (e) => {
-    e.preventDefault();
-
-axios
-.put
-(`${API_URL}/auth/editUser/${userId}`, {email})
-.then((response) => {
-  console.log(response.data)
-})*/
  const handleEmail = (e) => setEmail(e.target.value);
+ const handlePassword = (e) => setPassword(e.target.value);
+ const handleUserImage = (e) => setUserImage(e.target.files[0]);
+ 
+
 const handleEditUser = (e) => {
   e.preventDefault();
-  const requestBody = { email };
-  
+  const formData = new FormData();
+  formData.append("email", email);
+  formData.append("userImage", userImage);
+  formData.append("password", password);
 
-  axios
-  .put(`${API_URL}/auth/editUser/${userId}`,requestBody, {
+ 
+   axios
+  .put(`${API_URL}/auth/editUser/${userId}`, formData , {
     headers: { authorization: `Bearer ${gotToken}` },
   })
     .then(() => {
@@ -72,40 +68,19 @@ const handleEditUser = (e) => {
 };
 
 
-
-
-
-
-
-
-
-    /*try {
-      const gotToken = localStorage.getItem("authToken");
-      axios
-        .post(`http://localhost:5005/auth/editUser/${userId}`, userToEdit, {
-          headers: { authorization: `Bearer ${gotToken}` },
-        })
-        .then(() => {
-          navigate("/profile");
-        })
-        .catch((error) => {
-          console.log(error);
-          setErrorMessage("There was an error editing the user. Please try again.");
-        });
-    } catch (error) {
-      console.log(error);
-      setErrorMessage("There was an error editing the user. Please try again.");
-    }
-  };*/
-
-  return (
+return (
     <div className="EditUserPage">
       <h1>Edit User</h1>
 
-    <form onSubmit={handleEditUser} >
+    <form onSubmit={handleEditUser} enctype="multipart/form-data" >
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
+        <label>Password:</label>
+        <input type="password" name="password" value={password} onChange={handlePassword} />
+
+        <label>User Image:</label>
+        <input type="file" name="userImage" onChange={handleUserImage} />
         
 
         <button type="submit">Save Changes</button>
