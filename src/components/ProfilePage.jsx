@@ -8,7 +8,7 @@ import Display from "./Display"
 
 function ProfilePage() {
   const gotToken = localStorage.getItem("authToken");
-  const { logOutUser, user, setUser, removeToken, isLoggedIn, setIsLoggedIn,  } = useContext(AuthContext);
+  const { logOutUser, user, setUser, removeToken, isLoggedIn, setIsLoggedIn  } = useContext(AuthContext);
    console.log(user);
   // const userId = user._id
   // console.log(userId, "userId??")
@@ -68,7 +68,9 @@ function ProfilePage() {
         </div>
 
         <div className="profile-rightdiv">
-             <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link> 
+             <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>  
+             <Link to={`/deleteUser/${user._id}`}><button>Delete your user</button></Link>  
+
             <div className="profile-rightdiv-buttonsdiv">
               <Link to={ "/addRecord" }><button className="pink-button">Upload a recording</button></Link>
               {/* <Link to={ "/transcribe" }><button className="pink-button">Add transcribe</button></Link> */}

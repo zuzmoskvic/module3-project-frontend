@@ -12,6 +12,7 @@ import EditUser from "./components/EditUser";
 import Home from "./components/Home"
 import Recorder from "./components/Recorder";
 import Display from "./components/Display";
+import DeleteUser from "./components/DeleteUser";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <Route path="/record" element={<Recorder />} />
         <Route path="/display" element={<Display />} />
         <Route path="/editUser/:userId" element={<EditUser />} />
+        <Route path="/deleteUser/:userId" element={<DeleteUser />} />
+
          <Route path="/profile" element={<PrivatePage> <ProfilePage /></PrivatePage>}/> 
          { /* <Route path="/profile" element={<ProfilePage/>}/> */}
       </Routes>
