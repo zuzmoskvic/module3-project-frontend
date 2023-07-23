@@ -29,6 +29,21 @@ function Recorder() {
     audio.controls = true;
     document.body.appendChild(audio);
 
+
+
+    // // Select the existing div with class "audio-recorder"
+    // const audioRecorderDiv = document.querySelector('.audio-recorder');
+
+    // // Create a new <div> element
+    // const newDiv = document.createElement('div');
+    // newDiv.classList.add('new-audio-container'); // Optionally, you can add a class to the new <div> for styling purposes
+
+    // // Append the audio element as a child to the new <div>
+    // newDiv.appendChild(audio);
+
+    // // Insert the new <div> as a sibling after the existing div with class "audio-recorder"
+    // audioRecorderDiv.insertAdjacentElement('afterend', newDiv);
+
     // Call the function to upload the audio file to the backend
     uploadAudioFile(blob);
   };
