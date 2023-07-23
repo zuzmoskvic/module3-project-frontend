@@ -15,6 +15,8 @@ function ProfilePage() {
   // console.log(user, "user from profile")
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
+  const defaultImageUrl =  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
 
   useEffect(() => {     
     axios.get('http://localhost:5005/auth/profile',
@@ -28,8 +30,6 @@ function ProfilePage() {
     .catch((error) => console.log(error));
   }, [] );
 
-  const navigate = useNavigate();
-  
   const handleDeleteAccount = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account?");
     if (confirmDelete) {
@@ -58,8 +58,8 @@ function ProfilePage() {
 
           <div>
             <p>User email: { email }</p>
-            <p>User photo</p>
-            <img src={imageUrl} alt="user profile" className="profile-image"/>
+            <p>Profile photo</p>
+            { imageUrl ? (<img src={ imageUrl } alt="user profile" className="profile-image"/>) : (<img src={ defaultImageUrl } alt="user profile" className="profile-image"/>) }
           </div>
 
           <div className="profile-leftdiv-buttonsdiv">
@@ -67,8 +67,6 @@ function ProfilePage() {
             <button className="blue-button"  onClick={ logOutUser }>Logout</button>
           </div>
         </div>
-
-       
 
         <div className="profile-rightdiv">
             {/* <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link> */}
@@ -79,7 +77,6 @@ function ProfilePage() {
             <p>Add display of existing texts here .... </p>
             <Display/>
         </div>
-
 
       </div>
     </Layout>
