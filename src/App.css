@@ -208,16 +208,22 @@ nav{
   background-color: #f9f1c3;
 }
 
+.profile-leftdiv-buttonsdiv{
+  display: flex;
+  flex-direction: column;
+}
+
 .profile-rightdiv{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-left: 30px;
   /* align-items: center; */
 }
 
-.profile-leftdiv-buttonsdiv{
+.profile-rightdiv-buttonsdiv{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .profile-email{

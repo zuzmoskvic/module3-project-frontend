@@ -69,9 +69,12 @@ function ProfilePage() {
 
         <div className="profile-rightdiv">
             {/* <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link> */}
-            <Link to={ "/addRecord" }><button className="pink-button">Upload a recording</button></Link>
-            {/* <Link to={ "/transcribe" }><button className="pink-button">Add transcribe</button></Link> */}
-            <Link to={ "/record" }><button className="pink-button">Make a recording</button></Link>
+            <div className="profile-rightdiv-buttonsdiv">
+              <Link to={ "/addRecord" }><button className="pink-button">Upload a recording</button></Link>
+              {/* <Link to={ "/transcribe" }><button className="pink-button">Add transcribe</button></Link> */}
+              <Link to={ "/record" }><button className="pink-button">Make a recording</button></Link>
+            </div>
+
 
             <p>Add display of existing texts here .... </p>
             <Display/>

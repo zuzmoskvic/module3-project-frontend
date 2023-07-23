@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 
@@ -30,7 +29,7 @@ function AddRecord() {
           headers: { authorization: `Bearer ${gotToken}` },
         }
       );
-      const {data} = response;
+      const { data } = response;
 
       // this should be set up with setTransription; add a promise here?
       navigate("/recordsPage", { state: data.text });
@@ -43,28 +42,24 @@ function AddRecord() {
 
   return (
     <Layout>
-    <div>
+    <div className="LoginPage">
       <h1>Add Record</h1>
 
-      <form onSubmit={handleAddRecord} encType="multipart/form-data">
-        <label>Title</label>
-        <input type="text" name="title" value={title} onChange={handleTitle} />
+      <form className="login-form" onSubmit={ handleAddRecord } encType="multipart/form-data">
+        <label className="login-label" >Title</label>
+        <input className="login-input" type="text" name="title" value={title} onChange={ handleTitle } />
 
-        <label>Record:</label>
-        <input
-          type="file"
-          name="recordPath"
-          id="recordPath"
-          onChange={handleRecordPath}
+        <label className="login-label">Record</label>
+        <input className="login-input" type="file" name="recordPath" id="recordPath" onChange={ handleRecordPath }
         />
 
-        <button type="submit">Submit your Record</button>
+        <button className="pink-button" type="submit">Submit your Record</button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{ errorMessage }</p>}
       
-      <p>Already have an account?</p>
 
-      <Link to="/transcribe"> <button> Transcribe local file</button></Link> 
+
+      {/* <Link to="/transcribe"> <button className="pink-button"> Transcribe local file</button></Link>  */}
     </div>
     </Layout>
   );
