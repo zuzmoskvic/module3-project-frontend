@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../config/config.index';
 
+
 function EditUser() {
   const {  user } = useContext(AuthContext);
   const { userId } = useParams();
@@ -14,6 +15,8 @@ function EditUser() {
   //const [userImage, setUserImage] = useState("");
   //const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const gotToken = localStorage.getItem("authToken")
 
   useEffect(() => {
     try {
@@ -26,6 +29,7 @@ function EditUser() {
           })
           .then((response) => {
             setEmail(response.data.email);
+            console.log(response.data.email, "response")
           })
           .catch((error) => {
             console.log(error);
@@ -38,7 +42,7 @@ function EditUser() {
     }
   }, [userId]);
 
-  const handleEmail = (e) => setEmail(e.target.value);
+  /*const handleEmail = (e) => setEmail(e.target.value);
 
   const handleEditUser = (e) => {
     e.preventDefault();
@@ -48,12 +52,34 @@ axios
 (`${API_URL}/auth/editUser/${userId}`, {email})
 .then((response) => {
   console.log(response.data)
-})
-/*const userToEdit = {email}
+})*/
+ const handleEmail = (e) => setEmail(e.target.value);
+const handleEditUser = (e) => {
+  e.preventDefault();
+  const requestBody = { email };
+  
 
-console.log(userToEdit, "usertoedit")
+  axios
+  .put(`${API_URL}/auth/editUser/${userId}`,requestBody, {
+    headers: { authorization: `Bearer ${gotToken}` },
+  })
+    .then(() => {
+      navigate("/profile");
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+};
 
-    try {
+
+
+
+
+
+
+
+
+    /*try {
       const gotToken = localStorage.getItem("authToken");
       axios
         .post(`http://localhost:5005/auth/editUser/${userId}`, userToEdit, {
@@ -76,7 +102,7 @@ console.log(userToEdit, "usertoedit")
     <div className="EditUserPage">
       <h1>Edit User</h1>
 
-      <form onSubmit={handleEditUser} encType="multipart/form-data">
+    <form onSubmit={handleEditUser} >
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -88,9 +114,9 @@ console.log(userToEdit, "usertoedit")
 
       <Link to={"/profile"}>
         <button>Back to Profile</button>
-      </Link>
+  </Link>
     </div>
   );
-}}
+}
 
 export default EditUser
