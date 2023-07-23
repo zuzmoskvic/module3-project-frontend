@@ -161,12 +161,18 @@ nav{
 
 /* Profile page styling */
 .profile-image{
-  height: 120px;
+  height: 70px;
   border-radius: 50%;
   border: 2px #242b32 solid;
 }
 
-.blue-button{
+.profile-h1{
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.blue-button, .red-button{
   background-color: #fcfaf9;
   width: 200px;
   height: 35px;
@@ -176,6 +182,10 @@ nav{
   box-shadow: 10px 10px 0px 0px #242b32;
   align-self: center;
   margin: 10px;
+}
+
+.red-button:hover{
+  background-color:red;
 }
 
 .blue-button:hover{
@@ -190,18 +200,28 @@ nav{
 .profile-leftdiv{
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 25%;
+  align-items: center;
+  border-radius: 20px;
+  border: #242b32 2px solid;
+  padding: 20px;
+  background-color: #f9f1c3;
 }
 
 .profile-rightdiv{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  /* align-items: center; */
 }
 
 .profile-leftdiv-buttonsdiv{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.profile-email{
+  font-weight: bold;
 }
 
 /* Login page styling */

@@ -54,17 +54,16 @@ function ProfilePage() {
     <Layout>
       <div className="profile-maindiv">
         <div className="profile-leftdiv">
-          <h1>Welcome to your profile</h1>
+          <h1 className="profile-h1">Your profile</h1>
 
           <div>
-            <p>User email: { email }</p>
-            <p>Profile photo</p>
             { imageUrl ? (<img src={ imageUrl } alt="user profile" className="profile-image"/>) : (<img src={ defaultImageUrl } alt="user profile" className="profile-image"/>) }
+            <p className="profile-email">{ email }</p>
           </div>
 
           <div className="profile-leftdiv-buttonsdiv">
-           <button className="blue-button" onClick={ handleDeleteAccount }>Delete Account</button> 
             <button className="blue-button"  onClick={ logOutUser }>Logout</button>
+            <button className="red-button" onClick={ handleDeleteAccount }>Delete Account</button> 
           </div>
         </div>
 
