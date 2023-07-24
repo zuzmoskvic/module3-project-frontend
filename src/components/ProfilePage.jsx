@@ -30,25 +30,25 @@ function ProfilePage() {
     .catch((error) => console.log(error));
   }, [] );
 
-  const handleDeleteAccount = async () => {
-    const confirmDelete = window.confirm("Are you sure you want to delete your account?");
-    if (confirmDelete) {
-      try {
-        const gotToken = localStorage.getItem("authToken");
-        if (gotToken) {
-          await axios.delete(`${API_URL}/profile`, {
-            headers: { authorization: `Bearer ${gotToken}` },
-          });
-          removeToken();
-          setUser(null);
-          setIsLoggedIn(false);
-          navigate("/login");
-        }
-      } catch (err) {
-        console.log("There was an error while eliminating the user account", err);
-      }
-    }
-  };
+  // const handleDeleteAccount = async () => {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete your account?");
+  //   if (confirmDelete) {
+  //     try {
+  //       const gotToken = localStorage.getItem("authToken");
+  //       if (gotToken) {
+  //         await axios.delete(`${API_URL}/profile`, {
+  //           headers: { authorization: `Bearer ${gotToken}` },
+  //         });
+  //         removeToken();
+  //         setUser(null);
+  //         setIsLoggedIn(false);
+  //         navigate("/login");
+  //       }
+  //     } catch (err) {
+  //       console.log("There was an error while eliminating the user account", err);
+  //     }
+  //   }
+  // };
 
   return (
     <Layout>
@@ -63,13 +63,14 @@ function ProfilePage() {
 
           <div className="profile-leftdiv-buttonsdiv">
             <button className="blue-button"  onClick={ logOutUser }>Logout</button>
-            <button className="red-button" onClick={ handleDeleteAccount }>Delete Account</button> 
+            {/* <button className="red-button" onClick={ handleDeleteAccount }>Delete Account</button>  */}
+            <Link to={`/deleteUser/${user._id}`}><button className="red-button" >Delete user</button></Link> 
           </div>
         </div>
 
         <div className="profile-rightdiv">
              <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>  
-             <Link to={`/deleteUser/${user._id}`}><button>Delete your user</button></Link>  
+             {/* <Link to={`/deleteUser/${user._id}`}><button>Delete your user</button></Link>   */}
 
             <div className="profile-rightdiv-buttonsdiv">
               <Link to={ "/addRecord" }><button className="pink-button">Upload a recording</button></Link>

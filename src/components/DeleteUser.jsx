@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../config/config.index';
+import Layout from './Layout';
 
 function DeleteUser() {
   const { user} = useContext(AuthContext);
@@ -51,11 +52,13 @@ function DeleteUser() {
   };
 
   return (
-    <div>
-      
-      <button onClick={handleDeleteAccount}>Delete Account</button>
+    <Layout>
+      <div>
+        
+        <button className="red-button" onClick={handleDeleteAccount}>Delete Account</button>
 
-    </div>
+      </div>
+    </Layout>
   );
 }
 
