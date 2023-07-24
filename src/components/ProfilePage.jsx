@@ -9,12 +9,13 @@ import Layout from "./Layout";
 function ProfilePage() {
   const gotToken = localStorage.getItem("authToken");
   const { logOutUser, user, setUser, removeToken, isLoggedIn, setIsLoggedIn  } = useContext(AuthContext);
-   console.log(user);
+  
   // const userId = user._id
   // console.log(userId, "userId??")
   // console.log(user, "user from profile")
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(true);
   // const navigate = useNavigate();
   const defaultImageUrl =  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
 
@@ -26,9 +27,15 @@ function ProfilePage() {
     .then((response) => {
       setEmail(response.data.email);
       setImageUrl(response.data.userImage);
+      setLoading(false); 
     })
     .catch((error) => console.log(error));
   }, [] );
+
+  if (loading) {
+    // Render a loading message while fetching user data
+    return <p>Loading...</p>;
+  }
 
   // const handleDeleteAccount = async () => {
   //   const confirmDelete = window.confirm("Are you sure you want to delete your account?");
