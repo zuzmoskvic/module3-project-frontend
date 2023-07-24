@@ -277,3 +277,17 @@ nav{
   background-color: #e6639d;
   color: #fcfaf9;
 }
+
+/* Display */
+.small-h3{
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.display-main-div{
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2% 10%;
+}

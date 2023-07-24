@@ -23,14 +23,13 @@ function Display() {
 
   return (
     <Layout>
-      <div>
-        <p>View all saved records</p>
-        <p>Transcript</p>
-        { fetching ? <p>Loading ...</p> : <p> { displayedRecord.transcript } </p>}
+      <div className="display-main-div">
+        <h3 className="small-h3">Transcript:</h3>
+        { fetching ? <li> Loading transcript...</li> : <li> { displayedRecord.transcript } </li>}
 
-        <p>Written text:</p>
-      {fetching ? <p>Loading written text...</p> : displayedRecord.writtenText.map((entry) => (
-        <p key={entry._id}>{entry.text}</p>
+        <h3 className="small-h3">Written text:</h3>
+      {fetching ? <li>Loading written text...</li> : displayedRecord.writtenText.map((entry) => (
+        <li key={entry._id}>{entry.text}</li>
       ))}
       </div>
     </Layout>
