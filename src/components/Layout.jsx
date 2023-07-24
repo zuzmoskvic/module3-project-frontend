@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+
+
 function Layout({ children }) {
+  // const gotToken = localStorage.getItem("authToken");
+  const { isLoggedIn } = useContext(AuthContext);
+
     return (
           <main>
             <nav>
@@ -7,9 +14,10 @@ function Layout({ children }) {
                 <li><a className="nav-link" href="/">Home</a></li>
                 <li><a className="nav-link" href="/signup">Register</a></li>
                 <li><a className="nav-link" href="/login">Login</a></li>
-                <li><a className="nav-link" href="/profile">Profile</a></li>
-                {/* TO DO - replace this link */}
-                <li><a className="special-nav-link" href="/">Create</a></li>
+                {isLoggedIn && (<li><a className="special-nav-link" href="/profile">Profile</a></li>
+                )}
+                {isLoggedIn && (<li><a className="special-nav-link" href="/display">Read</a></li>
+                )}
               </ul>
             </nav>
               {children}
