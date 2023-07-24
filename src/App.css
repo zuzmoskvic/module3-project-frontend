@@ -231,7 +231,7 @@ nav{
 }
 
 /* Login page styling */
-.LoginPage{
+.LoginPage,.EditUserPage{
   display: flex;
   flex-direction: column;
   align-items: center;

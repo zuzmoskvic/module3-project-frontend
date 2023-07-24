@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth.context";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../config/config.index';
+import Layout from './Layout';
 
 
 function EditUser() {
@@ -69,28 +70,28 @@ const handleEditUser = (e) => {
 
 
 return (
+    <Layout>
     <div className="EditUserPage">
       <h1>Edit User</h1>
 
-    <form onSubmit={handleEditUser} enctype="multipart/form-data" >
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <form className="login-form" onSubmit={handleEditUser} enctype="multipart/form-data" >
+          <label className="login-label">Email:</label>
+          <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+          <label className="login-label">Password:</label>
+          <input className="login-input" type="password" name="password" value={password} onChange={handlePassword} />
 
-        <label>User Image:</label>
-        <input type="file" name="userImage" onChange={handleUserImage} />
-        
+          <label className="login-label">User Image:</label>
+          <input className="login-input" type="file" name="userImage" onChange={handleUserImage} />
+          
 
-        <button type="submit">Save Changes</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button className="pink-button" type="submit">Save Changes</button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <Link to={"/profile"}>
-        <button>Back to Profile</button>
-  </Link>
+        <Link to={"/profile"} className="login-link">Back to Profile</Link>
     </div>
+    </Layout>
   );
 }
 

@@ -64,12 +64,13 @@ function ProfilePage() {
           <div className="profile-leftdiv-buttonsdiv">
             <button className="blue-button"  onClick={ logOutUser }>Logout</button>
             {/* <button className="red-button" onClick={ handleDeleteAccount }>Delete Account</button>  */}
+            <Link to={`/editUser/${user._id}`}><button className="blue-button">Edit user</button></Link> 
             <Link to={`/deleteUser/${user._id}`}><button className="red-button" >Delete user</button></Link> 
           </div>
         </div>
 
         <div className="profile-rightdiv">
-             <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>  
+             {/* <Link to={`/editUser/${user._id}`}><button>Edit your user</button></Link>   */}
              {/* <Link to={`/deleteUser/${user._id}`}><button>Delete your user</button></Link>   */}
 
             <div className="profile-rightdiv-buttonsdiv">
