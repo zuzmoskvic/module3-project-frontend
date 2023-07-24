@@ -4,7 +4,8 @@ import Layout from "./Layout";
 
 function Display() {
   const gotToken = localStorage.getItem("authToken");
-  const [displayedText, setDisplayedText] = useState("");
+  // const [displayedText, setDisplayedText] = useState("");
+  const [displayedRecord, setDisplayedRecord] = useState(null);
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {     
@@ -13,7 +14,8 @@ function Display() {
       headers: { authorization: `Bearer ${gotToken}` },
     })
     .then((res) => {
-      setDisplayedText(res.data);
+      // setDisplayedText(res.data);
+      setDisplayedRecord(res.data);
       setFetching(false);
     })
     .catch((error) => console.log(error));
@@ -23,12 +25,12 @@ function Display() {
     // <Layout>
     <div>
        <p>View all saved records</p>
-       <p> *** This is only displaying the last record</p>
        <p>Transcript</p>
-       { fetching ? <p>Loading ...</p> : <p> { displayedText } </p>}
+       { fetching ? <p>Loading ...</p> : <p> { displayedRecord.transcript } </p>}
 
        <p>Written text:</p>
-       { fetching ? <p>Loading ...</p> : <p> { displayedText } </p>}
+          {displayedRecord.writtenText.map((entry) => (
+            <p key={entry._id}>{entry.text}</p>))}
     </div>
     // </Layout>
   )
