@@ -22,18 +22,18 @@ function Display() {
   }, [] );
 
   return (
-    // <Layout>
-    <div>
-       <p>View all saved records</p>
-       <p>Transcript</p>
-       { fetching ? <p>Loading ...</p> : <p> { displayedRecord.transcript } </p>}
+    <Layout>
+      <div>
+        <p>View all saved records</p>
+        <p>Transcript</p>
+        { fetching ? <p>Loading ...</p> : <p> { displayedRecord.transcript } </p>}
 
-       <p>Written text:</p>
-    {fetching ? <p>Loading written text...</p> : displayedRecord.writtenText.map((entry) => (
-      <p key={entry._id}>{entry.text}</p>
-    ))}
-    </div>
-    // </Layout>
+        <p>Written text:</p>
+      {fetching ? <p>Loading written text...</p> : displayedRecord.writtenText.map((entry) => (
+        <p key={entry._id}>{entry.text}</p>
+      ))}
+      </div>
+    </Layout>
   )
 }
 

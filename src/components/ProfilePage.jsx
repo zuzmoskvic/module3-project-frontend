@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
-import Display from "./Display"
+// import Display from "./Display";
 
 function ProfilePage() {
   const gotToken = localStorage.getItem("authToken");
@@ -15,7 +15,7 @@ function ProfilePage() {
   // console.log(user, "user from profile")
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const defaultImageUrl =  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
 
   useEffect(() => {     
@@ -79,9 +79,11 @@ function ProfilePage() {
               <Link to={ "/record" }><button className="pink-button">Make a recording</button></Link>
             </div>
 
-
-            <p>Add display of existing texts here .... </p>
-            <Display/>
+            <div className="home-rightdiv">
+              <Link to={ "/display" } className="login-link">Read your editing texts</Link>
+            </div>
+           
+            {/* <Display/> */}
         </div>
 
       </div>
