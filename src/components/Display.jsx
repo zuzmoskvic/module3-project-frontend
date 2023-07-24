@@ -29,8 +29,9 @@ function Display() {
        { fetching ? <p>Loading ...</p> : <p> { displayedRecord.transcript } </p>}
 
        <p>Written text:</p>
-          {displayedRecord.writtenText.map((entry) => (
-            <p key={entry._id}>{entry.text}</p>))}
+    {fetching ? <p>Loading written text...</p> : displayedRecord.writtenText.map((entry) => (
+      <p key={entry._id}>{entry.text}</p>
+    ))}
     </div>
     // </Layout>
   )
