@@ -139,6 +139,7 @@ nav{
   box-shadow: 10px 10px 0px 0px #34c3fa;
   align-self: center;
   margin: 10px;
+  cursor: pointer;
 }
 
 .pink-button:hover{
@@ -183,6 +184,7 @@ nav{
   box-shadow: 10px 10px 0px 0px #242b32;
   align-self: center;
   margin: 10px;
+  cursor: pointer;
 }
 
 .red-button:hover{
