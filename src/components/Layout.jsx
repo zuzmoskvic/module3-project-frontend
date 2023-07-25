@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-
+import { Link } from "react-router-dom";
 
 function Layout({ children }) {
   // const gotToken = localStorage.getItem("authToken");
@@ -9,7 +9,7 @@ function Layout({ children }) {
     return (
           <main>
             <nav>
-            <div className="app-title"> <img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div>
+            <Link to="/" className="app-title-link"><div className="app-title"><img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div></Link>
               <ul className="nav-links" >
                 <li><a className="nav-link" href="/">Home</a></li>
                 <li><a className="nav-link" href="/signup">Register</a></li>
