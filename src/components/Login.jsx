@@ -26,8 +26,7 @@ function Login() {
       setIsLoggedIn(true);
       navigate("/profile", { state: { userToLogin } } );
     } catch (error) {
-      console.log("there was an error logging in", error);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage("Invalid username or password.");
     }
   };
 
@@ -47,7 +46,6 @@ function Login() {
         </form>
         {errorMessage && <p className="error-message">{ errorMessage }</p>}
 
-        <br/>
         <p>Don't have an account yet?</p>
         <Link to={ "/signup" } className="login-link"> Create account</Link>
     </div>
