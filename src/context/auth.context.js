@@ -22,7 +22,7 @@ const AuthContextWrapper = (props) => {
           headers: { authorization: `Bearer ${gotToken}` },
         });
         const { user, userImage } = data
-        console.log("data from authenticate user", data)
+        // console.log("data from authenticate user", data)
         setUser({ ...user, userImage: userImage });
         setIsLoading(false);
         setIsLoggedIn(true);

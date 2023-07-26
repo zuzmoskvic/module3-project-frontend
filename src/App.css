@@ -308,6 +308,7 @@ nav{
   max-width: 40%;
   margin-left: 20px;
   background-color: #f9f1c3;
+  max-height: 60%;
 }
 
 .record-top-div{
@@ -331,10 +332,6 @@ nav{
   justify-content: left;
   align-items: left;
   height: 40vh; 
-}
-
-.click-me-h3{
-  
 }
 
 .error-message{

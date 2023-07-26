@@ -22,7 +22,6 @@ function Recorder() {
           headers: { authorization: `Bearer ${gotToken}` },
         }
       );
-      // const { data } = response;
       navigate("/recordsPage");
     } catch (error) {
       console.error("Error uploading file:", error);
