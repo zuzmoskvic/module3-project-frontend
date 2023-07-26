@@ -21,7 +21,7 @@ function Recorder() {
         // console.log('File uploaded successfully');
          const {data} = response;
         // console.log(response);
-        navigate("/profile");
+        navigate("/recordsPage");
       } catch (error) {
         console.error('Error uploading file:', error);
       }

@@ -50,16 +50,12 @@ function AddRecord() {
         <input className="login-input" type="text" name="title" value={title} onChange={ handleTitle } />
 
         <label className="login-label">Record</label>
-        <input className="login-input" type="file" name="recordPath" id="recordPath" onChange={ handleRecordPath }
-        />
+        <input className="login-input" type="file" name="recordPath" id="recordPath" onChange={ handleRecordPath }/>
 
         <button className="pink-button" type="submit">Submit your Record</button>
       </form>
       {errorMessage && <p className="error-message">{ errorMessage }</p>}
       
-
-
-      {/* <Link to="/transcribe"> <button className="pink-button"> Transcribe local file</button></Link>  */}
     </div>
     </Layout>
   );

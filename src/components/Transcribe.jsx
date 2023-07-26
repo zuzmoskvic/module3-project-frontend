@@ -5,10 +5,10 @@ import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 
 function Transcribe() {
+  const gotToken = localStorage.getItem("authToken");
   const [transcription, setTranscription] = useState("");
   const [fetching, setFetching] = useState(true);
-  const gotToken = localStorage.getItem("authToken");
-  
+
   useEffect(() => {                               
     axios
       .get(`${API_URL}/auth/transcribe`, {
@@ -21,7 +21,7 @@ function Transcribe() {
         setFetching(false);
       });
     
-  }, [] );
+  }, [fetching] );
 
   return (
     <Layout>
