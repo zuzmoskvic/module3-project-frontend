@@ -30,7 +30,7 @@ function Signup() {
         navigate("/login");
       })
       .catch((error) => {
-        console.log(error)
+          setErrorMessage("Signup failed. Please try a different email or login.");
       });
   };
 
@@ -53,7 +53,6 @@ function Signup() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <br/>
       <p>Already have an account?</p>
       <Link to={ "/login" } className="login-link">Login</Link>
 

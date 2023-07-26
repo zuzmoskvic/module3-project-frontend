@@ -5,8 +5,6 @@ import axios from "axios";
 import { API_URL } from "../config/config.index";
 
 const RecordPage = () => {
-  // const location = useLocation();
-  // const transcription = location.state;
   const gotToken = localStorage.getItem("authToken");
   const [transcription, setTranscription] = useState("");
   const [fetching, setFetching] = useState(true);

@@ -8,7 +8,6 @@ function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
   const [title, setTitle] = useState("");
   const [recordPath, setRecordPath] = useState("");
-  const [transcription, setTranscription] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
