@@ -17,6 +17,13 @@ function AddRecord() {
 
   const handleAddRecord = async (e) => {
     e.preventDefault();
+
+    // Perform client-side validation for file format
+    if (!recordPath || !recordPath.name.match(/\.(mp4|m4a|mp3|wav|mpeg)$/i)) {
+          setErrorMessage(`Invalid file format. Please upload a mp4, m4a, mp3, wav or mpeg file.`);
+          return;
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("recordPath", recordPath);

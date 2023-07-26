@@ -336,3 +336,8 @@ nav{
 .click-me-h3{
   
 }
+
+.error-message{
+  color: red;
+  font-weight: bold;
+}
