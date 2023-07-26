@@ -61,7 +61,7 @@ function ProfilePage() {
             </div>
 
             <div className="home-rightdiv">
-              <Link to={ "/display" } className="login-link">Read your editing texts</Link>
+              <Link to={ "/display" } className="login-link">Read your creations</Link>
             </div>
         </div>
 
