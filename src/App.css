@@ -299,3 +299,40 @@ nav{
   justify-content: center;
   padding: 2% 10%;
 }
+
+/* Record */
+.record-main-div{
+  border: 2px solid #242b32;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 40%;
+  margin-left: 20px;
+  background-color: #f9f1c3;
+}
+
+.record-top-div{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  height: 40vh; 
+}
+
+.record-middle-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  height: 40vh; 
+}
+
+.blob-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  height: 40vh; 
+}
+
+.click-me-h3{
+  
+}

@@ -1,71 +1,77 @@
-import axios from 'axios';
-import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
+import React, { useState } from "react";
+import axios from "axios";
+import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
 
 function Recorder() {
-    const recorderControls = useAudioRecorder();
-    const navigate = useNavigate();
+  const recorderControls = useAudioRecorder();
+  const navigate = useNavigate();
+  const [recordedBlob, setRecordedBlob] = useState(null);
 
-    const uploadAudioFile = async (blob) => {
-      try {
-        const gotToken = localStorage.getItem("authToken");
-        const formData = new FormData();
+  const uploadAudioFile = async (blob) => {
+    try {
+      const gotToken = localStorage.getItem("authToken");
+      const formData = new FormData();
 
-        formData.append('audio', blob, 'recorded.wav');
-        const response =  await axios.post('http://localhost:5005/auth/record',
-          formData,
-          {
-            headers: { authorization: `Bearer ${gotToken}` },
-          })
-        // console.log('File uploaded successfully');
-         const {data} = response;
-        // console.log(response);
-        navigate("/recordsPage");
-      } catch (error) {
-        console.error('Error uploading file:', error);
-      }
+      formData.append("audio", blob, "recorded.wav");
+      const response = await axios.post(
+        "http://localhost:5005/auth/record",
+        formData,
+        {
+          headers: { authorization: `Bearer ${gotToken}` },
+        }
+      );
+      // const { data } = response;
+      navigate("/recordsPage");
+    } catch (error) {
+      console.error("Error uploading file:", error);
+    }
   };
 
-  const addAudioElement = (blob) => {
-    const url = URL.createObjectURL(blob);
-    const audio = document.createElement('audio');
-    audio.src = url;
-    audio.controls = true;
-    document.body.appendChild(audio);
+  const [isRecordingComplete, setRecordingComplete] = useState(false);
 
+  const handleRecordingComplete = (blob) => {
+    setRecordedBlob(blob);
+    setRecordingComplete(true); // Set the state to indicate recording is complete
+  };
 
-
-    // // Select the existing div with class "audio-recorder"
-    // const audioRecorderDiv = document.querySelector('.audio-recorder');
-
-    // // Create a new <div> element
-    // const newDiv = document.createElement('div');
-    // newDiv.classList.add('new-audio-container'); // Optionally, you can add a class to the new <div> for styling purposes
-
-    // // Append the audio element as a child to the new <div>
-    // newDiv.appendChild(audio);
-
-    // // Insert the new <div> as a sibling after the existing div with class "audio-recorder"
-    // audioRecorderDiv.insertAdjacentElement('afterend', newDiv);
-
-    // Call the function to upload the audio file to the backend
-    uploadAudioFile(blob);
+  const handleUploadClick = () => {
+    if (recordedBlob) {
+      uploadAudioFile(recordedBlob);
+    } else {
+      console.log("No recorded audio to upload.");
+    }
   };
 
   return (
     <Layout>
-    <div>
-      <div>
-      <AudioRecorder 
-        onRecordingComplete={(blob)  => addAudioElement(blob)}
-        recorderControls={recorderControls}
-      />
-      {/* <button onClick={recorderControls.stopRecording}>Stop recording</button> */}
-    </div>
-    </div>
+    <div className="record-main-div">
+ 
+    <h3 className="click-me-h3">Click me ↓ and tell me what to write: </h3>
+      <div className="record-top-div">
+      
+        {!isRecordingComplete && ( 
+          <div className="blob-div">
+            <div className="audio-recorder"> 
+              <AudioRecorder
+                onRecordingComplete={handleRecordingComplete}
+                recorderControls={recorderControls}
+              />
+            </div>
+          </div>
+        )
+        }
+        {recordedBlob && (
+          <div className="record-middle-div">
+            <audio className="recorded-audio" src={URL.createObjectURL(recordedBlob)} controls />
+            <button className="pink-button" onClick={handleUploadClick}>Upload</button>
+          </div>
+        )}
+      </div>
+      </div>
     </Layout>
-  )
+  );
 }
 
-export default Recorder
+export default Recorder;

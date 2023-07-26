@@ -13,7 +13,7 @@ const RecordPage = () => {
 
   useEffect(() => {                               
     axios
-        .get(`${API_URL}/auth/transciption`,
+        .get(`${API_URL}/auth/transcription`,
         {
             headers: { authorization: `Bearer ${gotToken}` }
           })
