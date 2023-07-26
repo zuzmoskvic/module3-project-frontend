@@ -14,69 +14,43 @@ function Display() {
 
   const [displayedRecord, setDisplayedRecord] = useState([]);
   const [fetching, setFetching] = useState(true);
-  const [toggle, setToggle] = useState(false)
-
-  // const handleToggle = () => {
-  //   setToggle((current) => !current);
-  // };
+  const [toggle, setToggle] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/auth/display", {
-        headers: { authorization: ` Bearer ${gotToken} `},
+      .get(`${API_URL}/auth/display`, {
+        headers: { Authorization: `Bearer ${gotToken}` },
       })
       .then((res) => {
         setDisplayedRecord(res.data);
-        // console.log(res.data);
-        // console.log("record zero", res.data[0].writtenText[0].text);
+        console.log("dataaaaaaa", res.data)
         setFetching(false);
       })
       .catch((error) => console.log(error));
   }, [toggle]);
 
-  const handleDeleteTranscription = async (recordId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete your transcription?"
-    );
-    if (confirmDelete && gotToken) {
-      try {
-        await axios.post(
-          `${API_URL}/auth/display`,
-          { recordId },
-          {
-            headers: { authorization: `Bearer ${gotToken}` },
-          }
-        );
-        setDisplayedRecord(prevRecords => prevRecords.filter(record => record.recordId !== recordId));
-        setToggle(((current) => !current))
-      } catch (err) {
-        console.log("There was an error while deleting the transcript", err);
-      }
-    }
-  };
-
-  const handleDeleteWrittenText = async (writtenTextId) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete your transcription?"
-    );
-    if (confirmDelete && gotToken) {
-      try {
-        await axios.post(
-          `${API_URL}/auth/deletetext`,
-          { writtenTextId },
-          {
-            headers: { authorization: `Bearer ${gotToken}` },
-          }
-        );
-        setDisplayedRecord(prevRecords => prevRecords.filter(record => record !== writtenTextId));
-        setToggle(((current) => !current))
-      } catch (err) {
-        console.log("There was an error while deleting the transcript", err);
-      }
-    }
-  };
+  // const handleDeleteTranscription = async (transcriptId) => {
+  //   const confirmDelete = window.confirm(
+  //     "Are you sure you want to delete your transcription?"
+  //   );
+  //   if (confirmDelete && gotToken) {
+  //     try {
+  //       await axios.post(
+  //         `${API_URL}/auth/display`,
+  //         { transcriptId },
+  //         {
+  //           headers: { authorization: `Bearer ${gotToken}` },
+  //         }
+  //       );
+  //       setDisplayedRecord(prevRecords => prevRecords.filter(record => record !== transcriptId));
+  //       setToggle(((current) => !current))
+  //     } catch (err) {
+  //       console.log("There was an error while deleting the transcript", err);
+  //     }
+  //   }
+  // };
 
   return (
     <Layout>
@@ -89,18 +63,14 @@ function Display() {
           <div>
             {displayedRecord.map((entry, index) => (
               <div key={index}>
-              <p>This is a transcript: {entry.transcript} </p> 
-
-              {/* transcript delete */}
-              {console.log("entry._id", entry._id)}
-              <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}> Delete Transcription </button> 
+              <p>This is a transcript: {entry.transcript} </p>  
                 {entry.writtenText.map((item, itemIndex) => (
                   <div key={itemIndex}>
                   <p>This is a written text:  {item.text} </p>
                   {console.log("item id", item._id)}
+                  <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}> Delete </button> 
 
-                {/* writtenText delete */}
-                    <button className="red-button" onClick={() => handleDeleteWrittenText(item._id)}> Delete written text </button>
+                
                   </div>
                 ))}
               </div>
@@ -112,4 +82,5 @@ function Display() {
   );
   
                 }
+ 
 export default Display;
