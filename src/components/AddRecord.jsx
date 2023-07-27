@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
+import MiniNavBar from "./MiniNavBar";
 
 function AddRecord() {
   const gotToken = localStorage.getItem("authToken");
@@ -48,8 +49,9 @@ function AddRecord() {
 
   return (
     <Layout>
+    <MiniNavBar/>
     <div className="LoginPage">
-      <h1>Add Record</h1>
+      <h1>Upload a recording</h1>
 
       <form className="login-form" onSubmit={ handleAddRecord } encType="multipart/form-data">
         <label className="login-label" >Title</label>

@@ -5,6 +5,7 @@ import { API_URL } from "../config/config.index";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, useParams } from "react-router-dom";
+import MiniNavBar from "./MiniNavBar";
 
 function Display() {
   const gotToken = localStorage.getItem("authToken");
@@ -79,6 +80,7 @@ function Display() {
 
   return (
     <Layout>
+    <MiniNavBar/>
       <div className="display-main-div">
         <h3 className="small-h3">Transcript:</h3>
         {fetching ? (

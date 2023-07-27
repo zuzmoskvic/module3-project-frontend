@@ -8,7 +8,7 @@ function Layout({ children }) {
 
     return (
           <main>
-            <nav>
+            <nav className="nav">
             <Link to="/" className="app-title-link"><div className="app-title"><img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div></Link>
               <ul className="nav-links" >
                 <li><a className="nav-link" href="/">Home</a></li>

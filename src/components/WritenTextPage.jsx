@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
+import MiniNavBar from "./MiniNavBar";
 
 function WritenTextPage() {
     const gotToken = localStorage.getItem("authToken");
@@ -24,6 +25,7 @@ function WritenTextPage() {
 
     return (
         <Layout>
+        <MiniNavBar/>
             <div>
                 Written text:
                 {fetching ? <p>Loading ...</p> : <p>{ writtenText }</p>}

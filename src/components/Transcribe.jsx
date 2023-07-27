@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
+import MiniNavBar from "./MiniNavBar";
 
 function Transcribe() {
   const gotToken = localStorage.getItem("authToken");
@@ -25,6 +26,7 @@ function Transcribe() {
 
   return (
     <Layout>
+    <MiniNavBar/>
     <div>
       Transcription
        {fetching && <p>Loading ...</p>}

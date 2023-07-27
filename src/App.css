@@ -32,7 +32,7 @@ button{
 }
 
 /* Styling nav bar */
-nav{
+.nav{
   background-color: #fcfaf9;
   height: 50px;
   display: flex;
@@ -337,4 +337,51 @@ nav{
 .error-message{
   color: red;
   font-weight: bold;
+}
+
+/* Mini Nav Bar */
+.mini-nav-links{
+  display: flex;
+  text-decoration: none;
+  list-style: none;
+  align-items: center;
+}
+
+/* Hover animation for nav bar links */
+.mini-nav-link {
+  display: inline-block;
+  position: relative;
+  color: #34c3fa;
+  padding: 0 10px;
+  margin: 0 2px;
+  text-decoration: none;
+  color: #242b32;
+  font-weight: bold;
+}
+
+.mini-nav-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #34c3fa;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.mini-nav-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.mini-nav{
+  background-color: #fcfaf9;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
