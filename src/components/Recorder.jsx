@@ -3,6 +3,7 @@ import axios from "axios";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
+import MiniNavBar from "./MiniNavBar";
 
 function Recorder() {
   const recorderControls = useAudioRecorder();
@@ -45,6 +46,7 @@ function Recorder() {
 
   return (
     <Layout>
+    <MiniNavBar />
     <div className="record-main-div">
  
     <h3 className="click-me-h3">Click me ↓ and tell me what to write: </h3>
@@ -64,7 +66,7 @@ function Recorder() {
         {recordedBlob && (
           <div className="record-middle-div">
             <audio className="recorded-audio" src={URL.createObjectURL(recordedBlob)} controls />
-            <button className="pink-button" onClick={handleUploadClick}>Upload</button>
+            <button className="pink-button" onClick={handleUploadClick}>Next</button>
           </div>
         )}
       </div>

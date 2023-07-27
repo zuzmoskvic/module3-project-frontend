@@ -38,7 +38,6 @@ function AddRecord() {
       );
       const { data } = response;
 
-      // this should be set up with setTransription; add a promise here?
       navigate("/recordsPage", { state: data.text });
 
     } catch (error) {
@@ -60,7 +59,7 @@ function AddRecord() {
         <label className="login-label">Record</label>
         <input className="login-input" type="file" name="recordPath" id="recordPath" onChange={ handleRecordPath }/>
 
-        <button className="pink-button" type="submit">Submit your Record</button>
+        <button className="pink-button" type="submit">Next</button>
       </form>
       {errorMessage && <p className="error-message">{ errorMessage }</p>}
       

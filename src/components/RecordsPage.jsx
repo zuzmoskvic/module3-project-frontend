@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Layout from './Layout';
 import axios from "axios";
 import { API_URL } from "../config/config.index";
+import MiniNavBar from "./MiniNavBar";
 
 const RecordPage = () => {
   const gotToken = localStorage.getItem("authToken");
@@ -25,11 +26,12 @@ const RecordPage = () => {
  
   return (
     <Layout>
+    <MiniNavBar/>
       <div>
         <p> This is the transcription:  </p>
         
         {fetching ? <p>Loading ...</p> : <p> { transcription } </p>}
-        <Link to="/write"> <button className="pink-button"> Write me something </button></Link> 
+        <Link to="/write"> <button className="pink-button"> Next </button></Link> 
       </div>
   </Layout>
   )

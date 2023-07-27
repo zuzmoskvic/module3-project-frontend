@@ -3,6 +3,7 @@ import axios from "axios";
 import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 import MiniNavBar from "./MiniNavBar";
+import { Link } from "react-router-dom";
 
 function WritenTextPage() {
     const gotToken = localStorage.getItem("authToken");
@@ -29,6 +30,8 @@ function WritenTextPage() {
             <div>
                 Written text:
                 {fetching ? <p>Loading ...</p> : <p>{ writtenText }</p>}
+
+                <Link to="/display"> <button className="pink-button"> See all texts </button></Link> 
             </div>
         </Layout>
     )

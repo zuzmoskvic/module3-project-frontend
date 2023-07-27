@@ -385,3 +385,13 @@ button{
   align-items: center;
   justify-content: center;
 }
+
+/* Add your desired styling for visible and invisible steps */
+.completed-step {
+  color: #242b32;
+  font-weight: bold;
+}
+
+.incompleted-step {
+  color: gray;
+}

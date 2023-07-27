@@ -25,8 +25,8 @@ function Transcribe() {
   }, [fetching] );
 
   return (
-    <Layout>
-    <MiniNavBar/>
+    // <Layout>
+    // <MiniNavBar/>
     <div>
       Transcription
        {fetching && <p>Loading ...</p>}
@@ -34,7 +34,7 @@ function Transcribe() {
 
       <Link to="/write"> <button> Write me something </button></Link> 
     </div>
-    </Layout>
+    // </Layout>
   )
 }
 
