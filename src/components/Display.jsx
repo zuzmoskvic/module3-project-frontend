@@ -5,7 +5,6 @@ import { API_URL } from "../config/config.index";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, useParams } from "react-router-dom";
-import MiniNavBar from "./MiniNavBar";
 
 function Display() {
   const gotToken = localStorage.getItem("authToken");
@@ -31,30 +30,31 @@ function Display() {
       .catch((error) => console.log(error));
   }, [toggle]);
 
-  // const handleDeleteTranscription = async (transcriptId) => {
-  //   const confirmDelete = window.confirm(
-  //     "Are you sure you want to delete your transcription?"
-  //   );
-  //   if (confirmDelete && gotToken) {
-  //     try {
-  //       await axios.post(
-  //         `${API_URL}/auth/display`,
-  //         { transcriptId },
-  //         {
-  //           headers: { authorization: `Bearer ${gotToken}` },
-  //         }
-  //       );
-  //       setDisplayedRecord(prevRecords => prevRecords.filter(record => record !== transcriptId));
-  //       setToggle(((current) => !current))
-  //     } catch (err) {
-  //       console.log("There was an error while deleting the transcript", err);
-  //     }
-  //   }
-  // };
+  const handleDeleteTranscription = async (recordId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete your transcription?"
+    );
+    if (confirmDelete && gotToken) {
+      try {
+        await axios.post(
+          `${API_URL}/auth/display`,
+          { recordId },
+          {
+            headers: { Authorization: `Bearer ${gotToken}` },
+          }
+        );
+        setDisplayedRecord(prevRecords =>
+          prevRecords.filter(record => record._id !== recordId)
+        );
+        setToggle(current => !current);
+      } catch (err) {
+        console.log("There was an error while deleting the transcript", err);
+      }
+    }
+  };
 
   return (
     <Layout>
-    <MiniNavBar/>
       <div className="display-main-div">
         <h3 className="small-h3">Transcript:</h3>
         {fetching ? (
@@ -63,7 +63,10 @@ function Display() {
           <div>
             {displayedRecord.map((entry, index) => (
               <div key={index}>
-              <p>This is a transcript: {entry.transcript} </p>  
+              <p>This is a transcript: {entry.transcript} </p> 
+
+             
+              {console.log("entry._id", entry._id)}
                 {entry.writtenText.map((item, itemIndex) => (
                   <div key={itemIndex}>
                   <p>This is a written text:  {item.text} </p>
