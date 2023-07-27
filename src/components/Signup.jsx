@@ -30,7 +30,7 @@ function Signup() {
         navigate("/login");
       })
       .catch((error) => {
-          setErrorMessage("Signup failed. Please try a different email or login.");
+          setErrorMessage("Signup failed.Please try a different email or login.");
       });
   };
 
