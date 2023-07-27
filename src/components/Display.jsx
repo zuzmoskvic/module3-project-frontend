@@ -24,7 +24,7 @@ function Display() {
       })
       .then((res) => {
         setDisplayedRecord(res.data);
-        console.log("dataaaaaaa", res.data)
+        console.log(res.data)
         setFetching(false);
       })
       .catch((error) => console.log(error));
