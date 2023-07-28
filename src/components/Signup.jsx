@@ -36,7 +36,7 @@ function Signup() {
   return (
     <Layout>
       <div className="LoginPage">
-        <h1>Signup</h1>
+        <h1>Register</h1>
 
         <form
           className="login-form"
