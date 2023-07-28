@@ -11,12 +11,12 @@ function Layout({ children }) {
             <nav className="nav">
             <Link to="/" className="app-title-link"><div className="app-title"><img className="star-small" src="https://upload.wikimedia.org/wikipedia/commons/1/10/Black_4_Point_Star.png" alt="four pointed star"/> Too Lazy to Type</div></Link>
               <ul className="nav-links" >
-                <li><a className="nav-link" href="/">Home</a></li>
-                <li><a className="nav-link" href="/signup">Register</a></li>
-                <li><a className="nav-link" href="/login">Login</a></li>
-                {isLoggedIn && (<li><a className="special-nav-link" href="/profile">Profile</a></li>
+                <li><Link className="nav-link" href="/">Home</Link></li>
+                <li><Link className="nav-link" href="/signup">Register</Link></li>
+                <li><Link className="nav-link" href="/login">Login</Link></li>
+                {isLoggedIn && (<li><Link className="special-nav-link" href="/profile">Profile</Link></li>
                 )}
-                {isLoggedIn && (<li><a className="special-nav-link" href="/display">Read</a></li>
+                {isLoggedIn && (<li><Link className="special-nav-link" href="/display">Read</Link></li>
                 )}
               </ul>
             </nav>
