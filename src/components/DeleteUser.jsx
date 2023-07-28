@@ -6,7 +6,7 @@ import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 
 function DeleteUser() {
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const { userId } = useParams();
 
   const gotToken = localStorage.getItem("authToken");
@@ -44,7 +44,8 @@ function DeleteUser() {
         await axios.post(`${API_URL}/auth/deleteUser/${userId}`, requestBody, {
           headers: { authorization: `Bearer ${gotToken}` },
         });
-
+        localStorage.removeItem('authToken');
+        logOutUser();
         navigate("/signup");
       } catch (err) {
         console.log(

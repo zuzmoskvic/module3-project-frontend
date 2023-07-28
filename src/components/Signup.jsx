@@ -41,7 +41,7 @@ function Signup() {
         <form
           className="login-form"
           onSubmit={handleSignup}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
           <label className="login-label">Email</label>
           <input

@@ -68,7 +68,7 @@ return (
     <div className="EditUserPage">
       <h1>Edit User</h1>
 
-      <form className="login-form" onSubmit={handleEditUser} enctype="multipart/form-data" >
+      <form className="login-form" onSubmit={handleEditUser} encType="multipart/form-data" >
           <label className="login-label">Email:</label>
           <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
 

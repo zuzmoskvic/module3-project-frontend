@@ -16,6 +16,7 @@ const AuthContextWrapper = (props) => {
 
   const authenticateUser = async () => {
     const gotToken = localStorage.getItem("authToken");
+    // console.log(gotToken);
     if (gotToken) {
       try {
         const { data } = await axios.get(`${API_URL}/auth/verify`, {
