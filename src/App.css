@@ -242,7 +242,6 @@ button{
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: rebeccapurple 2px solid;
 }
 
 .login-input{
