@@ -27,6 +27,13 @@ function ProfilePage() {
       .catch((error) => console.log(error));
   }, []);
 
+    // Check if user._id is not undefined before setting loading to false
+    useEffect(() => {
+      if (user && user._id !== undefined) {
+        setLoading(false);
+      }
+    }, [user]);
+
   return (
     <Layout>
     <>
