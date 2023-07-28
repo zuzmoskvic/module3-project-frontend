@@ -1,3 +1,26 @@
+<h1 align="center">"Too Lazy to Type" Project - Frontend</h1>
+
+<p align="center">
+  Welcome to the front-end repository of the <em>"Too Lazy to Type"</em> project. This repository contains the client-side code for the website called <em>"Too Lazy to Type"</em>, which is part of the Final Project for Ironhack Bootcamp by Zuzana & Mauricio.
+</p>
+
+## Project Description
+
+"Too Lazy to Type" is a web application that allows users to perform various tasks using voice commands, audio recordings, and text input. The frontend is built using modern web technologies such as React.js, HTML, and CSS. It communicates with the backend, which provides a RESTful API to interact with the data. The backend repository can be found [here](https://github.com/zuzmoskvic/module3-project-backend).
+
+## Prerequisites
+
+Before running the project, make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org)
+
+## Getting Started
+
+Follow these instructions to get the project up and running on your local machine:
+
+1. **Clone the repository:**
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +91,39 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+The frontend development server should now be running, and you can access the web application in your browser at http://localhost:3000.
+
+## Project Structure
+
+The project follows a simple structure:
+
+- `public/`: Contains the index.html file and other static assets.
+- `src/`: Contains the source code of the React application.
+- `config/`: Configuration or URL handling when calling to back-end.
+- `components/`: Holds reusable React components used throughout the application.
+- `api/`: Handles API requests to the backend server.
+- `img/`: Stores images used in the application.
+- `App.js`: The main component that renders the application layout and handles routing.
+- `index.js`: Entry point of the application, where it is initialized.
+
+## Contributors
+
+Mauricio Benavente Ibañez (mauricio9797) & Zuzana Moskvic (zuzmoskvic). Ping us on GitHub if you have any feedback!
+
+## License
+
+This project is licensed under the <em>MIT License</em> (LICENSE).
+
+## Acknowledgments
+
+- Special thanks to Ironhack for making this project possible!
+- Thanks to the backend team for providing the API and supporting the integration with various services like Cloudinary and OpenAI.
+- This project was built with IronLauncher, providing a strong foundation for the development process.
+- Audio and image upload functionality is enabled via Cloudinary service.
+- Transcription is facilitated through Whisper OpenAI, while written text is handled via Chat Completion by OpenAI.
+
+Happy coding!
+</p>
+
