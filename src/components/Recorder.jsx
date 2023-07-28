@@ -17,7 +17,7 @@ function Recorder() {
       const formData = new FormData();
 
       formData.append("audio", blob, "recorded.wav");
-      const response = await axios.post(`${API_URL}/auth/record`, formData, {
+      await axios.post(`${API_URL}/auth/record`, formData, {
         headers: { authorization: `Bearer ${gotToken}` },
       });
       navigate("/recordsPage");
@@ -30,7 +30,7 @@ function Recorder() {
 
   const handleRecordingComplete = (blob) => {
     setRecordedBlob(blob);
-    setRecordingComplete(true); // Set the state to indicate recording is complete
+    setRecordingComplete(true); 
   };
 
   const handleUploadClick = () => {
@@ -44,6 +44,9 @@ function Recorder() {
   return (
     <Layout>
       <MiniNavBar />
+      <div className="record-bigger-div">
+
+
       <div className="record-main-div">
         <h3 className="click-me-h3">Click me ↓ and tell me what to write: </h3>
         <div className="record-top-div">
@@ -64,12 +67,17 @@ function Recorder() {
                 src={URL.createObjectURL(recordedBlob)}
                 controls
               />
-              <button className="pink-button" onClick={handleUploadClick}>
-                Next
-              </button>
+             
             </div>
+            
           )}
         </div>
+
+      </div>
+
+      <div className="edit-buttons-div">
+        <button className="pink-button" onClick={handleUploadClick}>Next</button>
+      </div>
       </div>
     </Layout>
   );

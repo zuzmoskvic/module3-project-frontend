@@ -238,7 +238,7 @@ button{
 }
 
 /* Login page styling */
-.LoginPage,.EditUserPage{
+.LoginPage,.EditUserPage,.WrittenTextPage,.RecordPage{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -373,14 +373,21 @@ button{
 }
 
 /* Record */
+.record-bigger-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .record-main-div{
-  border: 2px solid #242b32;
-  border-radius: 20px;
+  width: 300px;
+  max-height: 300px;
   padding: 20px;
-  max-width: 40%;
+  padding-bottom: 50px;
   margin-left: 20px;
-  background-color: #f9f1c3;
-  max-height: 60%;
+  border-radius: 20px;
+  border: 2px solid #242b32;
+  margin: 0 auto; 
 }
 
 .record-top-div{
@@ -388,6 +395,8 @@ button{
   justify-content: left;
   align-items: left;
   height: 40vh; 
+  max-height: 100px;
+  margin: 0 auto; 
 }
 
 .record-middle-div{
@@ -395,7 +404,6 @@ button{
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  height: 40vh; 
 }
 
 .blob-div{
@@ -403,7 +411,6 @@ button{
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  height: 40vh; 
 }
 
 .error-message{
@@ -508,4 +515,21 @@ button{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.WrittenTextPage,.RecordPage{
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.WrittenTextPage::-webkit-scrollbar,.RecordPage::-webkit-scrollbar{
+  width: 1em;
+}
+
+.WrittenTextPage::-webkit-scrollbar-track,.RecordPage::-webkit-scrollbar-track{
+  border: 1px #242b32 solid;
+}
+ 
+.WrittenTextPage::-webkit-scrollbar-thumb,.RecordPage::-webkit-scrollbar-thumb{
+  background-color: #e6639d;
 }

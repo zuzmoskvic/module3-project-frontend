@@ -25,7 +25,7 @@ function WritenTextPage() {
   return (
     <Layout>
       <MiniNavBar />
-      <div className="LoginPage"> 
+      <div className="WrittenTextPage"> 
         <h1>Written text</h1>
         <div className="text-div">
          {fetching ? <p>Loading ...</p> : <p>{writtenText}</p>}

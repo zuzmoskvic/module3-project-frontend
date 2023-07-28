@@ -25,7 +25,7 @@ const RecordPage = () => {
   return (
     <Layout>
       <MiniNavBar />
-      <div className="LoginPage">
+      <div className="RecordPage">
         <h1>Transcription</h1>
         <div className="text-div">
           {fetching ? <p>Loading ...</p> : <p> {transcription} </p>}
