@@ -75,18 +75,20 @@ function Display() {
                 {/* Create a div table per each record */}
                   {displayedRecord.reverse().map((entry, index) => (
                       <div key={index} id={totalRecords - index - 1}>
-                      {/* Title */}
-                      <h3>Recording #{totalRecords - index} {entry.title}</h3>
-                      {/* Transcript */}
-                      <li><span className="bold">Transcript: </span>{entry.transcript}</li>
-                      {/* Written text */}
-                      {entry.writtenText.map((item, itemIndex) => (
-                        <div key={itemIndex}>
-                          <li><span className="bold">Written text: </span>{item.text}</li>
-                      {/* Delete button */}
-                          <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}>Delete</button>
-                        </div>
-                      ))}
+                        {/* Title */}
+                        <h3>Recording #{totalRecords - index} {entry.title}</h3>
+                        {/* Transcript */}
+                        <li><span className="bold">Transcript: </span>{entry.transcript}</li>
+                        {/* Written text */}
+                        {entry.writtenText.map((item, itemIndex) => (
+                          <div key={itemIndex}>
+                            <li><span className="bold">Written text: </span>{item.text}</li>
+                        {/* Delete button */}
+                            <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}>Delete</button>
+                        {/* Edit button */}
+                            <Link to={`/edit/${entry._id}`}><button className="red-button">Edit</button></Link>
+                          </div>
+                        ))}
                     </div>
                   ))}
                 </div>

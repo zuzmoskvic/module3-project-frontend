@@ -465,3 +465,11 @@ button{
 .bold{
   font-weight: bolder;
 }
+
+/* Edit record */ 
+.edit-record-input{
+  width: 100%; 
+  height: 100px; 
+  padding: 10px;
+  font-size: 16px;
+}
