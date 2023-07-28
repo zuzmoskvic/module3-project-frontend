@@ -295,7 +295,6 @@ button{
 .display-div{
   display: flex;
   flex-direction: row;
-
 }
 
 .display-main-div-1{
@@ -323,7 +322,6 @@ button{
 
 .display-main-div-1::-webkit-scrollbar,.display-main-div-2::-webkit-scrollbar {
   width: 1em;
-  
 }
 
 .display-main-div-1::-webkit-scrollbar-track,.display-main-div-2::-webkit-scrollbar-track {
@@ -332,13 +330,15 @@ button{
  
 .display-main-div-1::-webkit-scrollbar-thumb,.display-main-div-2::-webkit-scrollbar-thumb {
   background-color: #e6639d;
-  /* outline: 1px solid slategrey; */
 }
 
-.li-display{
-  font-size: 14px;
-  margin: 5px;
-  padding-top: 10px;
+.simple-links{
+  border: none;
+  background-color: #fcfaf9;
+  color: #e6639d;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
 }
 
 /* Record */
@@ -439,19 +439,4 @@ button{
 
 .bold{
   font-weight: bolder;
-}
-
-/* .test{
-  overflow-y: auto;
-  border: 2px red solid;
-} */
-
-.simple-links{
-  border: none;
-  background-color: #fcfaf9;
-  color: #34c3fa;
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  font-weight: bold;
 }

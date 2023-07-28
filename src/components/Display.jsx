@@ -54,54 +54,62 @@ function Display() {
     }
   };
 
+  const totalRecords = displayedRecord.length;
+
   const handleLinkClick = (index) => {
-    const element = document.getElementById(index);
-    console.log(index);
+    const element = document.getElementById(totalRecords - index - 1);
     if (element) {
-      console.log(element);
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <Layout>
       <div className="display-div">
-
- 
-      <div className="display-main-div-1">
-        {fetching ? (
-          <li>Loading transcript...</li>
-        ) : (
-          <div className="test">
-
-
-            {displayedRecord.map((entry, index) => (
-              <div key={index} id={index}>
-                <h3> Recording #{index+1} {entry.title}</h3>
-                <li><span className="bold">Transcript: </span>{entry.transcript} </li> 
-
-                {entry.writtenText.map((item, itemIndex) => (
-                  <div key={itemIndex} >
-                  <li><span className="bold">Written text:  </span>{item.text} </li>
-                  <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}> Delete </button> 
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="display-main-div-2">
-              {displayedRecord.map((entry, index) => (
-                <button className="simple-links" onClick={() => handleLinkClick(index)}><li className="li-display">Recording #{index+1} {entry.title}</li></button>
+        <div className="display-main-div-1">
+          {fetching ? (
+            <li>Loading transcript...</li>
+          ) : (
+            <div className="test">
+              {displayedRecord.reverse().map((entry, index) => (
+                <div key={index} id={totalRecords - index - 1}>
+                  <h3> Recording #{totalRecords - index} {entry.title}</h3>
+                  <li>
+                    <span className="bold">Transcript: </span>{entry.transcript}
+                  </li>
+                  {entry.writtenText.map((item, itemIndex) => (
+                    <div key={itemIndex}>
+                      <li>
+                        <span className="bold">Written text: </span>{item.text}
+                      </li>
+                      <button
+                        className="red-button"
+                        onClick={() => handleDeleteTranscription(entry._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  ))}
+                </div>
               ))}
-       </div>
+            </div>
+          )}
+        </div>
+
+        <div className="display-main-div-2">
+          <p className="bold">Jump to section:</p>
+          {displayedRecord.map((entry, index) => (
+            <button
+              className="simple-links"
+              onClick={() => handleLinkClick(index)}
+            >
+              <li>Recording #{totalRecords - index} {entry.title}</li>
+            </button>
+          ))}
+        </div>
       </div>
-   
     </Layout>
   );
-  
 }
- 
+
 export default Display;
