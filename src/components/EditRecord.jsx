@@ -8,11 +8,10 @@ import { useNavigate } from "react-router-dom";
 function EditRecord(props) {
     const gotToken = localStorage.getItem("authToken");
     const [transcript, setTranscript] = useState("");
-
+    const [texts, setTexts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { recordId } = useParams();
     const navigate = useNavigate();
-    console.log("recordId:", recordId);
 
     useEffect(()=> {
         axios
@@ -21,8 +20,9 @@ function EditRecord(props) {
               })
             .then((res)=> {
                 console.log(res.data);
-                console.log(res.data.transcript);
+                console.log(res.data.writtenText); 
                 setTranscript(res.data.transcript);
+                setTexts(res.data.writtenText);
                 setIsLoading(false);
             })
             .catch((err)=>console.log(err))
@@ -30,7 +30,8 @@ function EditRecord(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const requestBody = { transcript };
+        const requestBody = { transcript, texts: texts };
+        console.log("requestBody", requestBody);
         axios
             .put(`${API_URL}/auth/edit/${recordId}`, requestBody,{
                 headers: { Authorization: `Bearer ${gotToken}` },
@@ -52,8 +53,17 @@ function EditRecord(props) {
           <form onSubmit={handleSubmit}>
             
             <label>Transcript:</label>
-            <input className="edit-record-input" type="text" name="transcript" value={transcript} onChange={(e) => setTranscript(e.target.value )}
-            />
+            <input className="edit-record-input" type="text" name="transcript" value={transcript} onChange={(e) => setTranscript(e.target.value )}/>
+
+            {texts.map((text, index) => (
+                <div key={index}>
+                    <label>Written text {index + 1}:</label>
+                    <input className="edit-record-input" type="text"
+                    value={text.text}
+                    onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
+                    setTexts(updatedTexts)}}/>
+                </div>
+                ))}
 
             <button type="submit">Update</button>
           </form>
