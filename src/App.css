@@ -473,37 +473,26 @@ button{
 }
 
 /* Edit record */ 
-.main-edit-user-div{
+.main-edit-record-div{
   display: flex;
+  max-width: 500px;
   align-items: center;
-  justify-content: center;
+  margin: 0 auto;
   flex-direction: column;
 }
 
-.edit-record-sub-div{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
- .edit-mini-div{
-  max-width: 850px;
-  padding: 10px;
-  margin: 0 auto; 
-  word-wrap: break-word;
+.edit-mini-div{
+  width: 500px;
 }
 
 .edit-record-input{
-  margin-top: 5px;
-  width: 100%; 
-  max-width: 600px;
-  height: 100px; 
-  padding: 10px;
-  font-size: 12px;
-  border: #242b32 2px solid;
+  margin-top: 3px;
+  width: 500px;
+  height: 120px;
   border-radius: 20px;
-  display: inline-block;
   text-align: left; 
+  border: #242b32 2px solid;
+  padding: 10px;
 }
 
 .edit-record-input:focus{
@@ -513,4 +502,10 @@ button{
 
 .text-div{
   max-width: 600px;
+}
+
+.edit-buttons-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

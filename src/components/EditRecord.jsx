@@ -46,12 +46,8 @@ function EditRecord(props) {
       <>
         {isLoading ? (
             <p>Loading...</p>          
-        ) : ( 
-
-        <div className="main-edit-user-div">
-          <Link to={"/display"} className="login-link">Back</Link>
-
-          <div className="edit-record-sub-div">
+        ) : (         
+          <div className="main-edit-record-div">
                 <form onSubmit={handleSubmit}>
                     {/* Edit transcript */}
                     <div className="edit-mini-div">
@@ -61,20 +57,24 @@ function EditRecord(props) {
 
                     {/* Edit written texts, if multiple */}
                     {texts.map((text, index) => (
-                        <div className="edit-div" key={index}>
+                        <div className="edit-mini-div" key={index}>
                             <label  className="login-label">Written text {index + 1}:</label>
                             <textarea className="edit-record-input" type="text"
                             value={text.text}
                             onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
                             setTexts(updatedTexts)}}/>
                         </div>
+                        
                         ))}
 
-                    <button className="pink-button" type="submit">Update</button>
                 </form>
+
+                <div className="edit-buttons-div">
+              <button className="blue-button" type="submit">Update</button>
+              <Link to={"/display"}><button className="blue-button" type="submit">Back</button></Link>
+         </div>   
             </div>
-          </div>
-        )}
+            )}
       </>
     </Layout>
   )
