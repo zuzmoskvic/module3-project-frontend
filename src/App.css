@@ -446,3 +446,12 @@ button{
   border: 2px red solid;
 } */
 
+.simple-links{
+  border: none;
+  background-color: #fcfaf9;
+  color: #34c3fa;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}

@@ -5,10 +5,11 @@ import { API_URL } from "../config/config.index";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 function Display() {
   const gotToken = localStorage.getItem("authToken");
+  const ref = useRef(null);
   const user = useContext(AuthContext);
   const { userId } = useParams();
 
@@ -25,7 +26,6 @@ function Display() {
       })
       .then((res) => {
         setDisplayedRecord(res.data);
-        // console.log(res.data)
         setFetching(false);
       })
       .catch((error) => console.log(error));
@@ -54,6 +54,15 @@ function Display() {
     }
   };
 
+  const handleLinkClick = (index) => {
+    const element = document.getElementById(index);
+    console.log(index);
+    if (element) {
+      console.log(element);
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Layout>
       <div className="display-div">
@@ -64,13 +73,15 @@ function Display() {
           <li>Loading transcript...</li>
         ) : (
           <div className="test">
+
+
             {displayedRecord.map((entry, index) => (
-              <div key={index}>
-              <h3> Recording #{index+1} {entry.title}</h3>
-              <li><span className="bold">Transcript: </span>{entry.transcript} </li> 
-              {/* {console.log("entry._id", entry._id)} */}
+              <div key={index} id={index}>
+                <h3> Recording #{index+1} {entry.title}</h3>
+                <li><span className="bold">Transcript: </span>{entry.transcript} </li> 
+
                 {entry.writtenText.map((item, itemIndex) => (
-                  <div key={itemIndex}>
+                  <div key={itemIndex} >
                   <li><span className="bold">Written text:  </span>{item.text} </li>
                   <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}> Delete </button> 
                   </div>
@@ -83,10 +94,11 @@ function Display() {
 
       <div className="display-main-div-2">
               {displayedRecord.map((entry, index) => (
-                <Link to="/"><li className="li-display">Recording #{index+1} {entry.title}</li></Link>
+                <button className="simple-links" onClick={() => handleLinkClick(index)}><li className="li-display">Recording #{index+1} {entry.title}</li></button>
               ))}
+       </div>
       </div>
-      </div>
+   
     </Layout>
   );
   
