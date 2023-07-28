@@ -4,6 +4,7 @@ import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
 import MiniNavBar from "./MiniNavBar";
+import { API_URL } from "../config/config.index";
 
 function Recorder() {
   const recorderControls = useAudioRecorder();
@@ -17,7 +18,7 @@ function Recorder() {
 
       formData.append("audio", blob, "recorded.wav");
       const response = await axios.post(
-        "http://localhost:5005/auth/record",
+        `${API_URL}/auth/record`,
         formData,
         {
           headers: { authorization: `Bearer ${gotToken}` },

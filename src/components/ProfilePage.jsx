@@ -20,7 +20,7 @@ function ProfilePage() {
   const defaultImageUrl =  "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png";
 
   useEffect(() => {     
-    axios.get('http://localhost:5005/auth/profile',
+    axios.get( `${API_URL}/auth/profile`,
     {
       headers: { authorization: `Bearer ${gotToken}` },
     })
