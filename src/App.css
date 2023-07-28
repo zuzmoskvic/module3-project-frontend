@@ -292,32 +292,53 @@ button{
   font-size: 12px;
 }
 
-.display-main-div{
+.display-div{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.display-main-div-1{
   max-width: 70%;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;  */
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
   /* padding: 2% 10%;  */
   height: auto; 
   max-height: 380px;
   overflow-y: auto;
   padding-right: 20px;
-  /* border: 2px red solid; */
-
 }
 
-.display-main-div::-webkit-scrollbar {
+.display-main-div-2{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;  */
+  /* padding: 2% 10%;  */
+  height: auto; 
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.display-main-div-1::-webkit-scrollbar,.display-main-div-2::-webkit-scrollbar {
   width: 1em;
   
 }
 
-.display-main-div::-webkit-scrollbar-track {
+.display-main-div-1::-webkit-scrollbar-track,.display-main-div-2::-webkit-scrollbar-track {
   border: 1px #242b32 solid;
 }
  
-.display-main-div::-webkit-scrollbar-thumb {
+.display-main-div-1::-webkit-scrollbar-thumb,.display-main-div-2::-webkit-scrollbar-thumb {
   background-color: #e6639d;
   /* outline: 1px solid slategrey; */
+}
+
+.li-display{
+  font-size: 14px;
+  margin: 5px;
+  padding-top: 10px;
 }
 
 /* Record */
@@ -424,3 +445,4 @@ button{
   overflow-y: auto;
   border: 2px red solid;
 } */
+

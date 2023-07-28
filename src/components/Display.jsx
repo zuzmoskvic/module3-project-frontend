@@ -5,6 +5,7 @@ import { API_URL } from "../config/config.index";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Display() {
   const gotToken = localStorage.getItem("authToken");
@@ -55,7 +56,10 @@ function Display() {
 
   return (
     <Layout>
-      <div className="display-main-div">
+      <div className="display-div">
+
+ 
+      <div className="display-main-div-1">
         {fetching ? (
           <li>Loading transcript...</li>
         ) : (
@@ -76,9 +80,16 @@ function Display() {
           </div>
         )}
       </div>
+
+      <div className="display-main-div-2">
+              {displayedRecord.map((entry, index) => (
+                <Link to="/"><li className="li-display">Recording #{index+1} {entry.title}</li></Link>
+              ))}
+      </div>
+      </div>
     </Layout>
   );
   
-                }
+}
  
 export default Display;
