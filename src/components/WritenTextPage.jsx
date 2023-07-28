@@ -25,13 +25,13 @@ function WritenTextPage() {
   return (
     <Layout>
       <MiniNavBar />
-      <div>
-        Written text:
-        {fetching ? <p>Loading ...</p> : <p>{writtenText}</p>}
-        <Link to="/display">
-          {" "}
-          <button className="pink-button"> See all texts </button>
-        </Link>
+      <div className="LoginPage"> 
+        <h1>Written text</h1>
+        <div className="text-div">
+         {fetching ? <p>Loading ...</p> : <p>{writtenText}</p>}
+        </div>
+
+        <Link to="/display"><button className="pink-button"> See all texts </button></Link>
       </div>
     </Layout>
   );

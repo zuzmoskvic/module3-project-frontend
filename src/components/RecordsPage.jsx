@@ -25,14 +25,12 @@ const RecordPage = () => {
   return (
     <Layout>
       <MiniNavBar />
-      <div>
-        <p> This is the transcription: </p>
-
-        {fetching ? <p>Loading ...</p> : <p> {transcription} </p>}
-        <Link to="/write">
-          {" "}
-          <button className="pink-button"> Next </button>
-        </Link>
+      <div className="LoginPage">
+        <h1>Transcription</h1>
+        <div className="text-div">
+          {fetching ? <p>Loading ...</p> : <p> {transcription} </p>}
+        </div>
+        <Link to="/write"><button className="pink-button"> Next </button></Link>
       </div>
     </Layout>
   );

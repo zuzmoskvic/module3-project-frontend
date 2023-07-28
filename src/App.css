@@ -510,3 +510,7 @@ button{
   border: #e6639d 2px solid;
   outline: none;
 } 
+
+.text-div{
+  max-width: 600px;
+}
