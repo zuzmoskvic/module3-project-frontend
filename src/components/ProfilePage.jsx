@@ -32,15 +32,21 @@ function ProfilePage() {
       if (user && user._id !== undefined) {
         setLoading(false);
       }
-    }, [user]);
+    }, [user, gotToken]);
 
   return (
     <Layout>
     <>
+
     {loading ? (
+  <p>Loading...</p>
+) : user && user._id ? (
+  <div className="profile-maindiv">
+
+    {/* {loading ? (
             <p>Loading...</p>          
         ) : ( 
-      <div className="profile-maindiv">
+      <div className="profile-maindiv"> */}
         <div className="profile-leftdiv">
           <h1 className="profile-h1">Your profile</h1>
 
@@ -52,7 +58,7 @@ function ProfilePage() {
           <div className="profile-leftdiv-buttonsdiv">
             <button className="blue-button" onClick={logOutUser}>Logout</button>
             <Link to={`/editUser/${user._id}`}><button className="blue-button">Edit user</button></Link>
-            <Link to={`/deleteUser/${user._id}`}>{console.log("user._id",user._id)}<button className="red-button">Delete user</button></Link>
+            <Link to={`/deleteUser/${user._id}`}><button className="red-button">Delete user</button></Link>
           </div>
         </div>
 
@@ -67,7 +73,10 @@ function ProfilePage() {
           </div>
         </div>
       </div>
+      ) : (
+  <p>User data not available.</p>
       )}
+      
       </>
         
     </Layout>

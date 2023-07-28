@@ -238,7 +238,7 @@ button{
 }
 
 /* Login page styling */
-.LoginPage,.EditUserPage,.WrittenTextPage,.RecordPage{
+.LoginPage,.EditUserPage,.WrittenTextPage,.RecordPage,.DeletePage{
   display: flex;
   flex-direction: column;
   align-items: center;

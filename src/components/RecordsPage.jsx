@@ -20,7 +20,7 @@ const RecordPage = () => {
         setTranscription(text);
         setFetching(false);
       });
-  }, [transcription]);
+  }, [transcription, gotToken]);
 
   return (
     <Layout>

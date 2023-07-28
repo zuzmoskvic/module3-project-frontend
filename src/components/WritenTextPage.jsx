@@ -20,7 +20,7 @@ function WritenTextPage() {
         setWrittenText(text);
         setFetching(false);
       });
-  }, []);
+  }, [gotToken]);
 
   return (
     <Layout>

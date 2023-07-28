@@ -31,7 +31,7 @@ function DeleteUser() {
 
   return (
     <Layout>
-      <div>
+      <div className="DeletePage">
         <button className="red-button" onClick={handleDeleteAccount}>Delete Account</button>
       </div>
     </Layout>

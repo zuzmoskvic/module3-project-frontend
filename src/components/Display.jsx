@@ -22,7 +22,7 @@ function Display() {
         setFetching(false);
       })
       .catch((error) => console.log(error));
-  }, [toggle]);
+  }, [toggle, gotToken]);
 
 // Handle delete button
   const handleDeleteTranscription = async (recordId) => {

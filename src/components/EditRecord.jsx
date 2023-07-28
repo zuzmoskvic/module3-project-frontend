@@ -25,7 +25,7 @@ function EditRecord(props) {
                 setIsLoading(false);
             })
             .catch((err)=>console.log(err))
-    },[recordId]);
+    },[recordId, gotToken]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
