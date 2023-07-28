@@ -153,16 +153,6 @@ button{
   color: #fcfaf9;
 }
 
-.home-rightdiv{
-  margin-top: 30px;
-  border-radius: 20px;
-  border: #242b32 2px solid;
-  padding: 20px;
-  background-color: #fefdfc;
-  text-align: center;
-  box-shadow: 10px 10px 0px 0px #34c3fa;
-}
-
 .illustration{
   width: 300px;
 }
@@ -226,6 +216,9 @@ button{
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-top: 10%;
+  align-items: center;
+  
 }
 
 .profile-rightdiv-buttonsdiv{
@@ -276,6 +269,25 @@ button{
   font-weight: bold;
   color: #e6639d;
   padding: 0 10px;
+}
+
+.read-button{
+  background-color: #fcfaf9;
+  width: 400px;
+  color: #242b32;
+  font-weight: bolder;
+  border: #242b32 2px solid;
+  box-shadow: 10px 10px 0px 0px #e6639d;
+  align-self: center;
+  cursor: pointer;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.read-button:hover{
+  background-color: #34c3fa;
+  color: #fcfaf9;
 }
 
 .login-link:hover{
