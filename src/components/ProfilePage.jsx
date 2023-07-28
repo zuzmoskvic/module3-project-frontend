@@ -25,7 +25,7 @@ function ProfilePage() {
         setLoading(false);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [gotToken]);
 
     // Check if user._id is not undefined before setting loading to false
     useEffect(() => {
