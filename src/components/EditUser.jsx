@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../config/config.index';
 import Layout from './Layout';
 
-
 function EditUser() {
   const { userId } = useParams();
   const navigate = useNavigate();
-
+  const gotToken = localStorage.getItem("authToken")
   const [email, setEmail] = useState("");
   const [userImage, setUserImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const gotToken = localStorage.getItem("authToken")
-
   useEffect(() => {
     try {
-      
       const gotToken = localStorage.getItem("authToken");
       if (gotToken) {
         axios
@@ -40,17 +36,15 @@ function EditUser() {
   }, [userId]);
 
  const handleEmail = (e) => setEmail(e.target.value);
-//  const handlePassword = (e) => setPassword(e.target.value);
  const handleUserImage = (e) => setUserImage(e.target.files[0]);
  
-
 const handleEditUser = (e) => {
   e.preventDefault();
   const formData = new FormData();
   formData.append("email", email);
   formData.append("userImage", userImage);
 
-   axios
+  axios
   .put(`${API_URL}/auth/editUser/${userId}`, formData , {
     headers: { authorization: `Bearer ${gotToken}` },
   })
@@ -61,7 +55,6 @@ const handleEditUser = (e) => {
       console.log(error)
     });
 };
-
 
 return (
     <Layout>
@@ -75,7 +68,6 @@ return (
           <label className="login-label">User Image:</label>
           <input className="login-input" type="file" name="userImage" onChange={handleUserImage} />
           
-
           <button className="pink-button" type="submit">Save Changes</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
