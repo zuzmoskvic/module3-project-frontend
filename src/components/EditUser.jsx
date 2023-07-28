@@ -44,7 +44,7 @@ function EditUser() {
   }, [userId]);
 
  const handleEmail = (e) => setEmail(e.target.value);
- const handlePassword = (e) => setPassword(e.target.value);
+//  const handlePassword = (e) => setPassword(e.target.value);
  const handleUserImage = (e) => setUserImage(e.target.files[0]);
  
 
@@ -53,7 +53,7 @@ const handleEditUser = (e) => {
   const formData = new FormData();
   formData.append("email", email);
   formData.append("userImage", userImage);
-  formData.append("password", password);
+  // formData.append("password", password);
 
  
    axios
@@ -78,8 +78,8 @@ return (
           <label className="login-label">Email:</label>
           <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
 
-          <label className="login-label">Password:</label>
-          <input className="login-input" type="password" name="password" value={password} onChange={handlePassword} />
+          {/* <label className="login-label">Password:</label>
+          <input className="login-input" type="password" name="password" value={password} onChange={handlePassword} /> */}
 
           <label className="login-label">User Image:</label>
           <input className="login-input" type="file" name="userImage" onChange={handleUserImage} />
