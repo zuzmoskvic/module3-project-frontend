@@ -51,7 +51,7 @@ function EditRecord(props) {
         <div className="main-edit-user-div">
           <Link to={"/display"} className="login-link">Back</Link>
 
-          <div className="EditUserPage">
+          <div className="edit-record-sub-div">
                 <form onSubmit={handleSubmit}>
                     {/* Edit transcript */}
                     <div className="edit-mini-div">

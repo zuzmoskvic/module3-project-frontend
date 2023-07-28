@@ -80,7 +80,7 @@ return (
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-        <Link to={"/profile"} className="login-link">Back to Profile</Link>
+        <Link to={"/profile"} className="login-link"> Back to Profile</Link>
     </div>
     </Layout>
   );
