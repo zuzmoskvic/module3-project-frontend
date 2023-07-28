@@ -24,7 +24,7 @@ function Display() {
       })
       .then((res) => {
         setDisplayedRecord(res.data);
-        console.log(res.data)
+        // console.log(res.data)
         setFetching(false);
       })
       .catch((error) => console.log(error));
@@ -56,24 +56,19 @@ function Display() {
   return (
     <Layout>
       <div className="display-main-div">
-        <h3 className="small-h3">Transcript:</h3>
         {fetching ? (
           <li>Loading transcript...</li>
         ) : (
-          <div>
+          <div className="test">
             {displayedRecord.map((entry, index) => (
               <div key={index}>
-              <p>This is a transcript: {entry.transcript} </p> 
-
-             
-              {console.log("entry._id", entry._id)}
+              <h3> Recording #{index+1} {entry.title}</h3>
+              <li><span className="bold">Transcript: </span>{entry.transcript} </li> 
+              {/* {console.log("entry._id", entry._id)} */}
                 {entry.writtenText.map((item, itemIndex) => (
                   <div key={itemIndex}>
-                  <p>This is a written text:  {item.text} </p>
-                  {console.log("item id", item._id)}
+                  <li><span className="bold">Written text:  </span>{item.text} </li>
                   <button className="red-button" onClick={() => handleDeleteTranscription(entry._id)}> Delete </button> 
-
-                
                   </div>
                 ))}
               </div>
