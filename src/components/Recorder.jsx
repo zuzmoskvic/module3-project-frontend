@@ -17,13 +17,9 @@ function Recorder() {
       const formData = new FormData();
 
       formData.append("audio", blob, "recorded.wav");
-      const response = await axios.post(
-        `${API_URL}/auth/record`,
-        formData,
-        {
-          headers: { authorization: `Bearer ${gotToken}` },
-        }
-      );
+      const response = await axios.post(`${API_URL}/auth/record`, formData, {
+        headers: { authorization: `Bearer ${gotToken}` },
+      });
       navigate("/recordsPage");
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -47,30 +43,33 @@ function Recorder() {
 
   return (
     <Layout>
-    <MiniNavBar />
-    <div className="record-main-div">
- 
-    <h3 className="click-me-h3">Click me ↓ and tell me what to write: </h3>
-      <div className="record-top-div">
-      
-        {!isRecordingComplete && ( 
-          <div className="blob-div">
-            <div className="audio-recorder"> 
-              <AudioRecorder
-                onRecordingComplete={handleRecordingComplete}
-                recorderControls={recorderControls}
-              />
+      <MiniNavBar />
+      <div className="record-main-div">
+        <h3 className="click-me-h3">Click me ↓ and tell me what to write: </h3>
+        <div className="record-top-div">
+          {!isRecordingComplete && (
+            <div className="blob-div">
+              <div className="audio-recorder">
+                <AudioRecorder
+                  onRecordingComplete={handleRecordingComplete}
+                  recorderControls={recorderControls}
+                />
+              </div>
             </div>
-          </div>
-        )
-        }
-        {recordedBlob && (
-          <div className="record-middle-div">
-            <audio className="recorded-audio" src={URL.createObjectURL(recordedBlob)} controls />
-            <button className="pink-button" onClick={handleUploadClick}>Next</button>
-          </div>
-        )}
-      </div>
+          )}
+          {recordedBlob && (
+            <div className="record-middle-div">
+              <audio
+                className="recorded-audio"
+                src={URL.createObjectURL(recordedBlob)}
+                controls
+              />
+              <button className="pink-button" onClick={handleUploadClick}>
+                Next
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </Layout>
   );

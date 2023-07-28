@@ -36,10 +36,10 @@ function Display() {
             headers: { Authorization: `Bearer ${gotToken}` },
           }
         );
-        setDisplayedRecord(prevRecords =>
-          prevRecords.filter(record => record._id !== recordId)
+        setDisplayedRecord((prevRecords) =>
+          prevRecords.filter((record) => record._id !== recordId)
         );
-        setToggle(current => !current);
+        setToggle((current) => !current);
       } catch (err) {
         console.log("There was an error while deleting the transcript", err);
       }
@@ -58,17 +58,17 @@ function Display() {
   return (
     <Layout>
       <div className="display-div">
-
-      {totalRecords === 0 ? (
+        {totalRecords === 0 ? (
           <div className="sad-image-div">
-            <img className="sad-url" src={sadUrl} alt="sad"/> 
+            <img className="sad-url" src={sadUrl} alt="sad" />
             <p className="bold">Nothing to see here yet. 😔</p>
-            <Link to="/profile"><button className="pink-button"> Record something</button></Link>
+            <Link to="/profile">
+              <button className="pink-button"> Record something</button>
+            </Link>
           </div>
         ) : (
           <>
-
-          <div className="display-main-div-1">
+            <div className="display-main-div-1">
               {fetching ? (
                 <li>Loading transcript...</li>
               ) : (

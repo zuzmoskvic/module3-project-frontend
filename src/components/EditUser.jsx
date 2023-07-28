@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { AuthContext } from "../context/auth.context";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from '../config/config.index';
@@ -7,14 +6,11 @@ import Layout from './Layout';
 
 
 function EditUser() {
-  const {  user } = useContext(AuthContext);
   const { userId } = useParams();
-  console.log(userId, "userId")
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [userImage, setUserImage] = useState("");
-  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const gotToken = localStorage.getItem("authToken")
@@ -53,9 +49,7 @@ const handleEditUser = (e) => {
   const formData = new FormData();
   formData.append("email", email);
   formData.append("userImage", userImage);
-  // formData.append("password", password);
 
- 
    axios
   .put(`${API_URL}/auth/editUser/${userId}`, formData , {
     headers: { authorization: `Bearer ${gotToken}` },
@@ -77,9 +71,6 @@ return (
       <form className="login-form" onSubmit={handleEditUser} enctype="multipart/form-data" >
           <label className="login-label">Email:</label>
           <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
-
-          {/* <label className="login-label">Password:</label>
-          <input className="login-input" type="password" name="password" value={password} onChange={handlePassword} /> */}
 
           <label className="login-label">User Image:</label>
           <input className="login-input" type="file" name="userImage" onChange={handleUserImage} />

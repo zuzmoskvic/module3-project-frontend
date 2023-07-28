@@ -18,7 +18,6 @@ function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    //const requestBody = { email, password };
     const formData = new FormData();
     formData.append("email", email);
     formData.append("userImage", userImage);
@@ -30,33 +29,57 @@ function Signup() {
         navigate("/login");
       })
       .catch((error) => {
-          setErrorMessage("Signup failed.Please try a different email or login.");
+        setErrorMessage("Signup failed.Please try a different email or login.");
       });
   };
 
   return (
     <Layout>
-    <div className="LoginPage">
-      <h1>Signup</h1>
+      <div className="LoginPage">
+        <h1>Signup</h1>
 
-      <form className="login-form" onSubmit={handleSignup} enctype="multipart/form-data">
-        <label className="login-label">Email</label>
-        <input className="login-input" type="email" name="email" value={email} onChange={handleEmail} />
+        <form
+          className="login-form"
+          onSubmit={handleSignup}
+          enctype="multipart/form-data"
+        >
+          <label className="login-label">Email</label>
+          <input
+            className="login-input"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
 
-        <label className="login-label">Profile picture</label>
-        <input className="login-input" type="file" name="userImage"  onChange={handleUserImage} />
+          <label className="login-label">Profile picture</label>
+          <input
+            className="login-input"
+            type="file"
+            name="userImage"
+            onChange={handleUserImage}
+          />
 
-        <label className="login-label">Password</label>
-        <input className="login-input" type="password" name="password" value={password} onChange={handlePassword}/>
+          <label className="login-label">Password</label>
+          <input
+            className="login-input"
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
 
-        <button  className="pink-button" type="submit">Sign up</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button className="pink-button" type="submit">
+            Sign up
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have an account?</p>
-      <Link to={ "/login" } className="login-link">Login</Link>
-
-    </div>
+        <p>Already have an account?</p>
+        <Link to={"/login"} className="login-link">
+          Login
+        </Link>
+      </div>
     </Layout>
   );
 }

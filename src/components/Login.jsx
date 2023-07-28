@@ -19,12 +19,11 @@ function Login() {
     try {
       const userToLogin = { email, password };
       const { data } = await axios.post(`${API_URL}/auth/login`, userToLogin);
-      // console.log("JWT token", data.authToken);
       const actualToken = data.authToken;
       setToken(actualToken);
       authenticateUser();
       setIsLoggedIn(true);
-      navigate("/profile", { state: { userToLogin } } );
+      navigate("/profile", { state: { userToLogin } });
     } catch (error) {
       setErrorMessage("Invalid username or password.");
     }
@@ -32,23 +31,42 @@ function Login() {
 
   return (
     <Layout>
-    <div  className="LoginPage">
+      <div className="LoginPage">
         <h1>Login</h1>
 
-        <form className="login-form" onSubmit={ handleLoginSubmit }>
+        <form className="login-form" onSubmit={handleLoginSubmit}>
           <label className="login-label">Email address</label>
-          <input className="login-input" type="email" name="email" value={ email } autoComplete="email" onChange={ handleEmail }/>
+          <input
+            className="login-input"
+            type="email"
+            name="email"
+            value={email}
+            autoComplete="email"
+            onChange={handleEmail}
+          />
 
           <label className="login-label">Password </label>
-          <input className="login-input" type="password" name="password" value={ password}  autoComplete="current-password" onChange={ handlePassword }/>
+          <input
+            className="login-input"
+            type="password"
+            name="password"
+            value={password}
+            autoComplete="current-password"
+            onChange={handlePassword}
+          />
 
-          <button className="pink-button" type="submit">Login</button>
+          <button className="pink-button" type="submit">
+            Login
+          </button>
         </form>
-        {errorMessage && <p className="error-message">{ errorMessage }</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <p>Don't have an account yet?</p>
-        <Link to={ "/signup" } className="login-link"> Create account</Link>
-    </div>
+        <Link to={"/signup"} className="login-link">
+          {" "}
+          Create account
+        </Link>
+      </div>
     </Layout>
   );
 }

@@ -20,8 +20,10 @@ function AddRecord() {
 
     // Perform client-side validation for file format
     if (!recordPath || !recordPath.name.match(/\.(mp4|m4a|mp3|wav|mpeg)$/i)) {
-          setErrorMessage(`Invalid file format. Please upload a mp4, m4a, mp3, wav or mpeg file.`);
-          return;
+      setErrorMessage(
+        `Invalid file format. Please upload a mp4, m4a, mp3, wav or mpeg file.`
+      );
+      return;
     }
 
     const formData = new FormData();
@@ -29,17 +31,12 @@ function AddRecord() {
     formData.append("recordPath", recordPath);
 
     try {
-      const response = await axios.post(
-        `${API_URL}/auth/addRecord`,
-        formData,
-        {
-          headers: { authorization: `Bearer ${gotToken}` },
-        }
-      );
+      const response = await axios.post(`${API_URL}/auth/addRecord`, formData, {
+        headers: { authorization: `Bearer ${gotToken}` },
+      });
       const { data } = response;
 
       navigate("/recordsPage", { state: data.text });
-
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
@@ -48,22 +45,39 @@ function AddRecord() {
 
   return (
     <Layout>
-    <MiniNavBar/>
-    <div className="LoginPage">
-      <h1>Upload a recording</h1>
+      <MiniNavBar />
+      <div className="LoginPage">
+        <h1>Upload a recording</h1>
 
-      <form className="login-form" onSubmit={ handleAddRecord } encType="multipart/form-data">
-        <label className="login-label" >Title</label>
-        <input className="login-input" type="text" name="title" value={title} onChange={ handleTitle } />
+        <form
+          className="login-form"
+          onSubmit={handleAddRecord}
+          encType="multipart/form-data"
+        >
+          <label className="login-label">Title</label>
+          <input
+            className="login-input"
+            type="text"
+            name="title"
+            value={title}
+            onChange={handleTitle}
+          />
 
-        <label className="login-label">Record</label>
-        <input className="login-input" type="file" name="recordPath" id="recordPath" onChange={ handleRecordPath }/>
+          <label className="login-label">Record</label>
+          <input
+            className="login-input"
+            type="file"
+            name="recordPath"
+            id="recordPath"
+            onChange={handleRecordPath}
+          />
 
-        <button className="pink-button" type="submit">Next</button>
-      </form>
-      {errorMessage && <p className="error-message">{ errorMessage }</p>}
-      
-    </div>
+          <button className="pink-button" type="submit">
+            Next
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
     </Layout>
   );
 }

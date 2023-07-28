@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import Layout from './Layout';
+import { Link } from "react-router-dom";
+import Layout from "./Layout";
 import axios from "axios";
 import { API_URL } from "../config/config.index";
 import MiniNavBar from "./MiniNavBar";
@@ -10,31 +10,32 @@ const RecordPage = () => {
   const [transcription, setTranscription] = useState("");
   const [fetching, setFetching] = useState(true);
 
-  useEffect(() => {                               
+  useEffect(() => {
     axios
-        .get(`${API_URL}/auth/transcription`,
-        {
-            headers: { authorization: `Bearer ${gotToken}` }
-          })
-        .then((response) => {
-            const text = response.data.transcript;
-            setTranscription(text);  
-            setFetching(false);
-        });
-    
-    }, [transcription] );
- 
+      .get(`${API_URL}/auth/transcription`, {
+        headers: { authorization: `Bearer ${gotToken}` },
+      })
+      .then((response) => {
+        const text = response.data.transcript;
+        setTranscription(text);
+        setFetching(false);
+      });
+  }, [transcription]);
+
   return (
     <Layout>
-    <MiniNavBar/>
+      <MiniNavBar />
       <div>
-        <p> This is the transcription:  </p>
-        
-        {fetching ? <p>Loading ...</p> : <p> { transcription } </p>}
-        <Link to="/write"> <button className="pink-button"> Next </button></Link> 
+        <p> This is the transcription: </p>
+
+        {fetching ? <p>Loading ...</p> : <p> {transcription} </p>}
+        <Link to="/write">
+          {" "}
+          <button className="pink-button"> Next </button>
+        </Link>
       </div>
-  </Layout>
-  )
+    </Layout>
+  );
 };
 
 export default RecordPage;
