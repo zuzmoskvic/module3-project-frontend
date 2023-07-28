@@ -33,6 +33,11 @@ button{
   font-size: 12px;
 }
 
+::selection {
+  background-color: #ffcc00; 
+  color: #000000; 
+}
+
 /* Styling nav bar */
 .nav{
   background-color: #fcfaf9;
@@ -233,10 +238,11 @@ button{
 }
 
 /* Login page styling */
-.LoginPage,.EditUserPage{
+.LoginPage{
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: rebeccapurple 2px solid;
 }
 
 .login-input{
@@ -467,12 +473,40 @@ button{
 }
 
 /* Edit record */ 
+.main-edit-user-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.EditUserPage{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+ .edit-mini-div{
+  max-width: 850px;
+  padding: 10px;
+  margin: 0 auto; 
+  word-wrap: break-word;
+}
+
 .edit-record-input{
+  margin-top: 5px;
   width: 100%; 
+  max-width: 600px;
   height: 100px; 
   padding: 10px;
-  font-size: 16px;
-  
-  
- 
+  font-size: 12px;
+  border: #242b32 2px solid;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: left; 
 }
+
+.edit-record-input:focus{
+  border: #e6639d 2px solid;
+  outline: none;
+} 

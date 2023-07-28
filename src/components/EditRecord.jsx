@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import { API_URL } from "../config/config.index";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function EditRecord(props) {
     const gotToken = localStorage.getItem("authToken");
@@ -42,30 +43,39 @@ function EditRecord(props) {
   return (
     <Layout>
     
-      <div>
+      <>
         {isLoading ? (
-          <p>Loading...</p>
+            <p>Loading...</p>          
         ) : ( 
-           
-          <form onSubmit={handleSubmit}>
-            
-            <label>Transcript:</label>
-            <input className="edit-record-input" type="text" name="transcript" value={transcript} onChange={(e) => setTranscript(e.target.value )}/>
 
-            {texts.map((text, index) => (
-                <div key={index}>
-                    <label>Written text {index + 1}:</label>
-                    <input className="edit-record-input" type="text"
-                    value={text.text}
-                    onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
-                    setTexts(updatedTexts)}}/>
-                </div>
-                ))}
+        <div className="main-edit-user-div">
+          <Link to={"/display"} className="login-link">Back</Link>
 
-            <button type="submit">Update</button>
-          </form>
+          <div className="EditUserPage">
+                <form onSubmit={handleSubmit}>
+                    {/* Edit transcript */}
+                    <div className="edit-mini-div">
+                        <label className="login-label">Transcript:</label>
+                        <textarea className="edit-record-input" type="text" name="transcript" value={transcript} onChange={(e) => setTranscript(e.target.value)}  />
+                    </div>
+
+                    {/* Edit written texts, if multiple */}
+                    {texts.map((text, index) => (
+                        <div className="edit-div" key={index}>
+                            <label  className="login-label">Written text {index + 1}:</label>
+                            <textarea className="edit-record-input" type="text"
+                            value={text.text}
+                            onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
+                            setTexts(updatedTexts)}}/>
+                        </div>
+                        ))}
+
+                    <button className="pink-button" type="submit">Update</button>
+                </form>
+            </div>
+          </div>
         )}
-      </div>
+      </>
     </Layout>
   )
 }
