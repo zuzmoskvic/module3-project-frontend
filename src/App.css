@@ -171,6 +171,18 @@ button{
   border: 2px #242b32 solid;
 }
 
+.user-div-link{
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-div{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
 .profile-h1{
   padding: 0;
   margin: 0;
@@ -235,6 +247,8 @@ button{
 
 .profile-email{
   font-weight: bold;
+  text-decoration: none;
+
 }
 
 /* Login page styling */

@@ -50,11 +50,15 @@ function ProfilePage() {
         <div className="profile-leftdiv">
           <h1 className="profile-h1">Your profile</h1>
 
-          <div>
-            {imageUrl ? (<img src={imageUrl} alt="user profile" className="profile-image"/>) : (<img src={defaultImageUrl} alt="user profile" className="profile-image"/>)}
-            <p className="profile-email">{email}</p>
-          </div>
+          {/* Clickable user profile  */}
+          <Link to={`/editUser/${user._id}`}  className="user-div-link">
+            <div className="user-div">
+              {imageUrl ? (<img src={imageUrl} alt="user profile" className="profile-image"/>) : (<img src={defaultImageUrl} alt="user profile" className="profile-image"/>)}
+              <p className="profile-email">{email}</p>
+            </div>
+          </Link>
 
+          {/* User profile action buttons */}
           <div className="profile-leftdiv-buttonsdiv">
             <button className="blue-button" onClick={logOutUser}>Logout</button>
             <Link to={`/editUser/${user._id}`}><button className="blue-button">Edit user</button></Link>
