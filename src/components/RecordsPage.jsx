@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import axios from "axios";
 import { API_URL } from "../config/config.index";
 import MiniNavBar from "./MiniNavBar";
+import loadingImage from "../img/loading.gif";
 
 const RecordPage = () => {
   const gotToken = localStorage.getItem("authToken");
@@ -28,7 +29,7 @@ const RecordPage = () => {
       <div className="RecordPage">
         <h1>Transcription</h1>
         <div className="text-div">
-          {fetching ? <p>Loading ...</p> : <p> {transcription} </p>}
+          {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> : <p> {transcription} </p>}
         </div>
         <Link to="/write"><button className="pink-button"> Next </button></Link>
       </div>
