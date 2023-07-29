@@ -35,7 +35,7 @@ function EditRecord(props) {
                 headers: { Authorization: `Bearer ${gotToken}` },
               })
             .then((response) => {
-            window.alert('Record updated!');
+            window.alert('Text updated!');
             navigate(`/display`);
             });
     }
