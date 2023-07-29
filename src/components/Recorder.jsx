@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
 import MiniNavBar from "./MiniNavBar";
 import { API_URL } from "../config/config.index";
+import { Link } from "react-router-dom";
 
 function Recorder() {
   const recorderControls = useAudioRecorder();
@@ -39,6 +40,14 @@ function Recorder() {
     } else {
       console.log("No recorded audio to upload.");
     }
+  };
+
+  const handleReRecordClick = () => {
+    // Reset the recordedBlob and isRecordingComplete states
+    // setRecordedBlob(null);
+    // setRecordingComplete(false);
+    // Reload the page
+    window.location.reload();
   };
 
   return (
@@ -77,6 +86,7 @@ function Recorder() {
 
       <div className="edit-buttons-div">
         <button className="pink-button" onClick={handleUploadClick}>Next</button>
+        <button className="pink-button" onClick={handleReRecordClick}>Re-record</button>
       </div>
       </div>
     </Layout>
