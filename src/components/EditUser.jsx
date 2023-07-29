@@ -22,7 +22,6 @@ function EditUser() {
           })
           .then((response) => {
             setEmail(response.data.email);
-            console.log(response.data.email, "response")
           })
           .catch((error) => {
             console.log(error);

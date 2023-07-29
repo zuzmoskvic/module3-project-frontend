@@ -21,9 +21,7 @@ function EditRecord(props) {
               })
             .then((res)=> {
                 setTranscript(res.data.transcript);
-                console.log("res.data.transcript",res.data.transcript);
                 setTexts(res.data.writtenText);
-                console.log("res.data.writtenText",res.data.writtenText);
                 setIsLoading(false);
             })
             .catch((err)=>console.log(err))
@@ -32,7 +30,6 @@ function EditRecord(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const requestBody = { transcript, texts: texts };
-        console.log("requestBody",requestBody);
         axios
             .put(`${API_URL}/auth/edit/${recordId}`, requestBody,{
                 headers: { Authorization: `Bearer ${gotToken}` },
