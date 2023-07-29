@@ -43,8 +43,8 @@ function Recorder() {
 
   const handleReRecordClick = () => {
     // Reset the recordedBlob and isRecordingComplete states
-    // setRecordedBlob(null);
-    // setRecordingComplete(false);
+    setRecordedBlob(null);
+    setRecordingComplete(false);
     // Reload the page
     window.location.reload();
   };
