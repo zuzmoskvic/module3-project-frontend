@@ -5,7 +5,6 @@ import Layout from "./Layout";
 import { useNavigate } from "react-router-dom";
 import MiniNavBar from "./MiniNavBar";
 import { API_URL } from "../config/config.index";
-import { Link } from "react-router-dom";
 
 function Recorder() {
   const recorderControls = useAudioRecorder();

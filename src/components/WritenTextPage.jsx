@@ -4,6 +4,7 @@ import { API_URL } from "../config/config.index";
 import Layout from "./Layout";
 import MiniNavBar from "./MiniNavBar";
 import { Link } from "react-router-dom";
+import loadingImage from "../img/loading.gif";
 
 function WritenTextPage() {
   const gotToken = localStorage.getItem("authToken");
@@ -28,7 +29,7 @@ function WritenTextPage() {
       <div className="WrittenTextPage"> 
         <h1>Written text</h1>
         <div className="text-div">
-         {fetching ? <p>Loading ...</p> : <p>{writtenText}</p>}
+         {fetching ? <img className="loading-gif" src={loadingImage} alt="loading"/> : <p>{writtenText}</p>}
         </div>
 
         <Link to="/display"><button className="pink-button"> See all texts </button></Link>
