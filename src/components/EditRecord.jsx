@@ -66,7 +66,7 @@ function EditRecord(props) {
                         </div>
                         
                         ))}
-          <div className="edit-buttons-div">
+          <div className="edit-buttons-div-row">
               <Link to={"/display"}><button className="blue-button" type="submit">Back</button></Link>
               <button className="blue-button" type="submit">Update</button>
          </div>   

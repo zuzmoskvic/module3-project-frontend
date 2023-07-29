@@ -531,6 +531,12 @@ button{
   align-items: center;
 }
 
+.edit-buttons-div-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .WrittenTextPage,.RecordPage{
   overflow-y: auto;
   max-height: 300px;
