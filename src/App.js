@@ -14,6 +14,7 @@ import Display from "./components/Display";
 import DeleteUser from "./components/DeleteUser";
 import EditRecord from "./components/EditRecord";
 import EditTranscript from "./components/EditTranscript";
+import EditWritenText from "./components/EditWritenText";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         {/* Editing operations  */}
         <Route path="/editRecord/:recordId" element={<EditRecord/>} />
         <Route path="/editTranscript/:recordId" element={<EditTranscript/>} />
+        <Route path="/editWrittenText/:recordId" element={<EditWritenText />} />
 
       </Routes>
     </div>

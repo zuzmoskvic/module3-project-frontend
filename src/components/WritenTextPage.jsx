@@ -35,6 +35,8 @@ function WritenTextPage() {
         </div>
 
         <Link to="/display"><button className="pink-button"> See all texts </button></Link>
+        {/* Edit button */}
+        <Link to={ `/editWrittenText/${recordId}` }><button className="pink-button"> Edit </button></Link>
       </div>
     </Layout>
   );
