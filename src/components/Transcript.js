@@ -34,6 +34,9 @@ const Transcript = () => {
           {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> : <p> {transcript} </p>}
         </div>
         <Link to={ `/write/${recordId}` }><button className="pink-button"> Next </button></Link>
+
+        {/* Edit button */}
+        <Link to={ `/editTranscript/${recordId}` }><button className="pink-button"> Edit </button></Link>
       </div>
     </Layout>
   );

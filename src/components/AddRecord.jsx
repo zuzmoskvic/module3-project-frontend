@@ -35,7 +35,6 @@ function AddRecord() {
         headers: { authorization: `Bearer ${gotToken}` },
       });
       const { recordId, text } = response.data;
-      console.log("recordId", recordId);
       navigate(`/transcribe/${recordId}`, { state: text });
     } catch (error) {
       const errorDescription = error.response.data.message;

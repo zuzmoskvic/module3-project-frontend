@@ -13,6 +13,7 @@ import Recorder from "./components/Recorder";
 import Display from "./components/Display";
 import DeleteUser from "./components/DeleteUser";
 import EditRecord from "./components/EditRecord";
+import EditTranscript from "./components/EditTranscript";
 
 function App() {
   return (
@@ -34,7 +35,10 @@ function App() {
         <Route path="/editUser/:userId" element={<EditUser />} />
         <Route path="/deleteUser/:userId" element={<DeleteUser />} />
 
+        {/* Editing operations  */}
         <Route path="/editRecord/:recordId" element={<EditRecord/>} />
+        <Route path="/editTranscript/:recordId" element={<EditTranscript/>} />
+
       </Routes>
     </div>
   );
