@@ -5,15 +5,17 @@ import axios from "axios";
 import { API_URL } from "../config/config.index";
 import MiniNavBar from "./MiniNavBar";
 import loadingImage from "../img/loading.gif";
+import { useParams } from "react-router-dom";
 
 const Transcript = () => {
+  const { recordId } = useParams();
   const gotToken = localStorage.getItem("authToken");
   const [transcript, setTranscript] = useState("");
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/transcript`, {
+      .get(`${API_URL}/auth/transcript/${recordId}`, {
         headers: { authorization: `Bearer ${gotToken}` },
       })
       .then((response) => {
@@ -21,7 +23,7 @@ const Transcript = () => {
         setTranscript(text);
         setFetching(false);
       });
-  }, [transcript, gotToken]);
+  }, [transcript, gotToken, recordId]);
 
   return (
     <Layout>
