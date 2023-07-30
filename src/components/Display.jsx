@@ -31,7 +31,7 @@ function Display() {
     );
     if (confirmDelete && gotToken) {
       try {
-        await axios.delete(`${API_URL}/auth//edit/${recordId}`,
+        await axios.delete(`${API_URL}/auth/delete/${recordId}`,
           {
             headers: { Authorization: `Bearer ${gotToken}` },
           }
