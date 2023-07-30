@@ -36,7 +36,7 @@ function AddRecord() {
       });
       const { data } = response;
 
-      navigate("/recordsPage", { state: data.text });
+      navigate("/transcript", { state: data.text });
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

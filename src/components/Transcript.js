@@ -6,30 +6,30 @@ import { API_URL } from "../config/config.index";
 import MiniNavBar from "./MiniNavBar";
 import loadingImage from "../img/loading.gif";
 
-const RecordPage = () => {
+const Transcript = () => {
   const gotToken = localStorage.getItem("authToken");
-  const [transcription, setTranscription] = useState("");
+  const [transcript, setTranscript] = useState("");
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/transcription`, {
+      .get(`${API_URL}/auth/transcript`, {
         headers: { authorization: `Bearer ${gotToken}` },
       })
       .then((response) => {
         const text = response.data.transcript;
-        setTranscription(text);
+        setTranscript(text);
         setFetching(false);
       });
-  }, [transcription, gotToken]);
+  }, [transcript, gotToken]);
 
   return (
     <Layout>
       <MiniNavBar />
       <div className="RecordPage">
-        <h1>Transcription</h1>
+        <h1>Transcript</h1>
         <div className="text-div">
-          {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> : <p> {transcription} </p>}
+          {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> : <p> {transcript} </p>}
         </div>
         <Link to="/write"><button className="pink-button"> Next </button></Link>
       </div>
@@ -37,4 +37,4 @@ const RecordPage = () => {
   );
 };
 
-export default RecordPage;
+export default Transcript;

@@ -20,7 +20,7 @@ function Recorder() {
       await axios.post(`${API_URL}/auth/record`, formData, {
         headers: { authorization: `Bearer ${gotToken}` },
       });
-      navigate("/recordsPage");
+      navigate("/transcript");
     } catch (error) {
       console.error("Error uploading file:", error);
     }

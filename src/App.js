@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import AddRecord from "./components/AddRecord";
-import RecordsPage from "./components/RecordsPage"
+import Transcript from "./components/Transcript"
 import ProfilePage from "./components/ProfilePage";
 import PrivatePage from "./components/PrivatePage";
 import WritenTextPage from "./components/WritenTextPage";
@@ -23,7 +23,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/addRecord"  element={<AddRecord />}/>
-        <Route path="/recordsPage" element={<RecordsPage />} />
+        {/* <Route path="/transcript/:recordId" element={<Transcript />} /> */}
+        <Route path="/transcript" element={<Transcript />} />
         <Route path="/write" element={<WritenTextPage />} />
         <Route path="/record" element={<Recorder />} />
         <Route path="/display" element={<Display />} />

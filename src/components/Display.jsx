@@ -25,9 +25,9 @@ function Display() {
   }, [toggle, gotToken]);
 
   // Handle delete button
-  const handleDeleteTranscription = async (recordId) => {
+  const handleDeleteTranscript = async (recordId) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete your transcription?"
+      "Are you sure you want to delete your transcript?"
     );
     if (confirmDelete && gotToken) {
       try {
@@ -104,7 +104,7 @@ function Display() {
                           <button
                             className="red-button"
                             onClick={() =>
-                              handleDeleteTranscription(entry._id)
+                              handleDeleteTranscript(entry._id)
                             }
                           >
                             Delete
