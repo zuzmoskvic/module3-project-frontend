@@ -21,15 +21,20 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/addRecord"  element={<AddRecord />}/>
+        <Route path="/record" element={<Recorder />} />
+
         <Route path="/transcribe/:recordId" element={<Transcript />} />
         <Route path="/write/:recordId" element={<WritenTextPage />} />
-        <Route path="/record" element={<Recorder />} />
-        <Route path="/display" element={<Display />} />
-        <Route path="/edit/:userId" element={<EditUser />} />
-        <Route path="/delete/:userId" element={<DeleteUser />} />
+
         <Route path="/profile" element={<PrivatePage> <ProfilePage /></PrivatePage>}/> 
-        <Route path="/edit/:recordId" element={<EditRecord/>} />
+        <Route path="/display" element={<Display />} />
+
+        <Route path="/editUser/:userId" element={<EditUser />} />
+        <Route path="/deleteUser/:userId" element={<DeleteUser />} />
+
+        <Route path="/editRecord/:recordId" element={<EditRecord/>} />
       </Routes>
     </div>
   );

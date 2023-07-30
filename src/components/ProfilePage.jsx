@@ -44,7 +44,7 @@ function ProfilePage() {
           <h1 className="profile-h1">Your profile</h1>
 
           {/* Clickable user profile  */}
-          <Link to={`/edit/${user._id}`}  className="user-div-link">
+          <Link to={`editUser/${user._id}`}  className="user-div-link">
             <div className="user-div">
               {imageUrl ? (<img src={imageUrl} alt="user profile" className="profile-image"/>) : (<img src={defaultImageUrl} alt="user profile" className="profile-image"/>)}
               <p className="profile-email">{email}</p>
@@ -54,8 +54,8 @@ function ProfilePage() {
           {/* User profile action buttons */}
           <div className="profile-leftdiv-buttonsdiv">
             <button className="blue-button" onClick={logOutUser}>Logout</button>
-            <Link to={`/edit/${user._id}`}><button className="blue-button">Edit user</button></Link>
-            <Link to={`/delete/${user._id}`}><button className="red-button">Delete user</button></Link>
+            <Link to={`/editUser/${user._id}`}><button className="blue-button">Edit user</button></Link>
+            <Link to={`/deleteUser/${user._id}`}><button className="red-button">Delete user</button></Link>
           </div>
         </div>
 

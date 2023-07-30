@@ -16,10 +16,11 @@ function EditRecord(props) {
 
     useEffect(()=> {
         axios
-            .get(`${API_URL}/auth/record/${recordId}`,{
+            .get(`${API_URL}/auth/editRecord/${recordId}`,{
                 headers: { Authorization: `Bearer ${gotToken}` },
               })
             .then((res)=> {
+              console.log(res);
                 setTranscript(res.data.transcript);
                 setTexts(res.data.writtenText);
                 setIsLoading(false);
@@ -31,7 +32,7 @@ function EditRecord(props) {
         e.preventDefault();
         const requestBody = { transcript, texts: texts };
         axios
-            .put(`${API_URL}/auth/edit/${recordId}`, requestBody,{
+            .put(`${API_URL}/auth/editRecord/${recordId}`, requestBody,{
                 headers: { Authorization: `Bearer ${gotToken}` },
               })
             .then((response) => {

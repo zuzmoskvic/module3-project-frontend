@@ -101,7 +101,7 @@ function Display() {
                           {/* Delete button */}
                           <button className="red-button" onClick={() => handleDeleteTranscript(entry._id)}>Delete</button>
                           {/* Edit button */}
-                          <Link to={`/edit/${entry._id}`}><button className="blue-button">Edit</button></Link>
+                          <Link to={`/editRecord/${entry._id}`}><button className="blue-button">Edit</button></Link>
                         </div>
                       ))}
                     </div>
