@@ -31,7 +31,14 @@ const Transcript = () => {
       <div className="RecordPage">
         <h1>Transcript</h1>
         <div className="text-div">
-          {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> : <p> {transcript} </p>}
+          {fetching ?  <img className="loading-gif" src={loadingImage} alt="loading"/> :  (
+            // Split the transcript by newlines and map each paragraph to a <p> element
+            transcript.split("\n").map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))
+          )}
+          
+          {/* <p> {transcript} </p>} */}
         </div>
         <Link to={ `/write/${recordId}` }><button className="pink-button"> Next </button></Link>
 
