@@ -28,10 +28,18 @@ function WritenTextPage() {
   return (
     <Layout>
       <MiniNavBar />
-      <div className="WrittenTextPage"> 
+
+        <div className="WrittenTextPage">
         <h1>Written text</h1>
         <div className="text-div">
-         {fetching ? <img className="loading-gif" src={loadingImage} alt="loading"/> : <p>{writtenText}</p>}
+          {fetching ? (
+            <img className="loading-gif" src={loadingImage} alt="loading" />
+          ) : (
+            // Split the writtenText by newlines and map each paragraph to a <p> element
+            writtenText.split("\n").map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))
+          )}
         </div>
 
         <Link to="/display"><button className="pink-button"> See all texts </button></Link>
