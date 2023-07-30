@@ -26,8 +26,8 @@ function App() {
         <Route path="/write/:recordId" element={<WritenTextPage />} />
         <Route path="/record" element={<Recorder />} />
         <Route path="/display" element={<Display />} />
-        <Route path="/editUser/:userId" element={<EditUser />} />
-        <Route path="/deleteUser/:userId" element={<DeleteUser />} />
+        <Route path="/edit/:userId" element={<EditUser />} />
+        <Route path="/delete/:userId" element={<DeleteUser />} />
         <Route path="/profile" element={<PrivatePage> <ProfilePage /></PrivatePage>}/> 
         <Route path="/edit/:recordId" element={<EditRecord/>} />
       </Routes>

@@ -17,7 +17,7 @@ function EditUser() {
       const gotToken = localStorage.getItem("authToken");
       if (gotToken) {
         axios
-          .get(`${API_URL}/auth/editUser/${userId}`,{
+          .get(`${API_URL}/auth/edit/${userId}`,{
             headers: { authorization: `Bearer ${gotToken}` },
           })
           .then((response) => {
@@ -44,7 +44,7 @@ const handleEditUser = (e) => {
   formData.append("userImage", userImage);
 
   axios
-  .put(`${API_URL}/auth/editUser/${userId}`, formData , {
+  .put(`${API_URL}/auth/edit/${userId}`, formData , {
     headers: { authorization: `Bearer ${gotToken}` },
   })
     .then(() => {

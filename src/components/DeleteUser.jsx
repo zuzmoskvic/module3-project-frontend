@@ -16,7 +16,7 @@ function DeleteUser() {
     const confirmed = window.confirm("Are you sure you want to delete your account?");
     if (confirmed) {
       axios
-        .delete(`${API_URL}/auth/deleteUser/${userId}`, {
+        .delete(`${API_URL}/auth/delete/${userId}`, {
           headers: { Authorization: `Bearer ${gotToken}` },
         })
         .then(() => {
