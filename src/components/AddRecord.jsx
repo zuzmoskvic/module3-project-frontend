@@ -36,7 +36,7 @@ function AddRecord() {
       });
       const { recordId, text } = response.data;
       console.log("recordId", recordId);
-      navigate(`/transcript/${recordId}`, { state: text });
+      navigate(`/transcribe/${recordId}`, { state: text });
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

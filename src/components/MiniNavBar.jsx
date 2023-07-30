@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 const steps = [
   { name: "Upload record", path: "/addRecord" },
-  { name: "Transcribe", path: "/transcript" },
+  { name: "Transcribe", path: "/transcribe" },
   { name: "Write", path: "/write" },
   { name: "Read", path: "/display" },
 ];

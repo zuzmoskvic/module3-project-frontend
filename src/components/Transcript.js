@@ -15,7 +15,7 @@ const Transcript = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/transcript/${recordId}`, {
+      .get(`${API_URL}/auth/transcribe/${recordId}`, {
         headers: { authorization: `Bearer ${gotToken}` },
       })
       .then((response) => {

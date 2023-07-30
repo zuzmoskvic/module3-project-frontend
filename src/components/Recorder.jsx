@@ -21,7 +21,7 @@ function Recorder() {
         headers: { authorization: `Bearer ${gotToken}` },
       });
       const { _id } = response.data.record;
-      navigate(`/transcript/${_id}`);
+      navigate(`/transcribe/${_id}`);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
