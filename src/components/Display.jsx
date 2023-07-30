@@ -31,9 +31,7 @@ function Display() {
     );
     if (confirmDelete && gotToken) {
       try {
-        await axios.post(
-          `${API_URL}/auth/display`,
-          { recordId },
+        await axios.delete(`${API_URL}/auth//edit/${recordId}`,
           {
             headers: { Authorization: `Bearer ${gotToken}` },
           }
@@ -101,18 +99,9 @@ function Display() {
                             ))}
                           </div>
                           {/* Delete button */}
-                          <button
-                            className="red-button"
-                            onClick={() =>
-                              handleDeleteTranscript(entry._id)
-                            }
-                          >
-                            Delete
-                          </button>
+                          <button className="red-button" onClick={() => handleDeleteTranscript(entry._id)}>Delete</button>
                           {/* Edit button */}
-                          <Link to={`/edit/${entry._id}`}>
-                            <button className="blue-button">Edit</button>
-                          </Link>
+                          <Link to={`/edit/${entry._id}`}><button className="blue-button">Edit</button></Link>
                         </div>
                       ))}
                     </div>
@@ -125,14 +114,8 @@ function Display() {
             <div className="display-main-div-2">
               <p className="bold">Jump to section:</p>
               {displayedRecord.map((entry, index) => (
-                <button
-                  key={index}
-                  className="simple-links"
-                  onClick={() => handleLinkClick(index)}
-                >
-                  <li>
-                    Recording #{totalRecords - index} {entry.title}
-                  </li>
+                <button key={index} className="simple-links" onClick={() => handleLinkClick(index)}>
+                  <li>Recording #{totalRecords - index} {entry.title}</li>
                 </button>
               ))}
             </div>
