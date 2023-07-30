@@ -38,15 +38,8 @@ function ProfilePage() {
     <Layout>
     <>
 
-    {loading ? (
-  <p>Loading...</p>
-) : user && user._id ? (
-  <div className="profile-maindiv">
+    {loading ? (<p>Loading...</p>) : user && user._id ? (  <div className="profile-maindiv">
 
-    {/* {loading ? (
-            <p>Loading...</p>          
-        ) : ( 
-      <div className="profile-maindiv"> */}
         <div className="profile-leftdiv">
           <h1 className="profile-h1">Your profile</h1>
 
