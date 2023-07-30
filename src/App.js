@@ -24,8 +24,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/addRecord"  element={<AddRecord />}/>
         <Route path="/transcript/:recordId" element={<Transcript />} />
-        {/* <Route path="/transcript" element={<Transcript />} /> */}
-        <Route path="/write" element={<WritenTextPage />} />
+        <Route path="/write/:recordId" element={<WritenTextPage />} />
         <Route path="/record" element={<Recorder />} />
         <Route path="/display" element={<Display />} />
         <Route path="/editUser/:userId" element={<EditUser />} />

@@ -5,15 +5,17 @@ import Layout from "./Layout";
 import MiniNavBar from "./MiniNavBar";
 import { Link } from "react-router-dom";
 import loadingImage from "../img/loading.gif";
+import { useParams } from "react-router-dom";
 
 function WritenTextPage() {
   const gotToken = localStorage.getItem("authToken");
   const [writtenText, setWrittenText] = useState("");
   const [fetching, setFetching] = useState(true);
+  const { recordId } = useParams();
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/write`, {
+      .get(`${API_URL}/auth/write/${recordId}`, {
         headers: { authorization: `Bearer ${gotToken}` },
       })
       .then((response) => {
@@ -21,7 +23,7 @@ function WritenTextPage() {
         setWrittenText(text);
         setFetching(false);
       });
-  }, [gotToken]);
+  }, [gotToken, recordId]);
 
   return (
     <Layout>
