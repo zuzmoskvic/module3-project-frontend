@@ -25,7 +25,7 @@ function EditRecord(props) {
                 setIsLoading(false);
             })
             .catch((err)=>console.log(err))
-    },[recordId, gotToken]);
+    },[recordId, gotToken, texts]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,6 +37,16 @@ function EditRecord(props) {
             .then((response) => {
             window.alert('Text updated!');
             navigate(`/display`);
+            });
+    }
+    
+    const generateNewText = async () => {
+      axios
+          .get(`${API_URL}/auth/writeText/${recordId}`, {
+              headers: { Authorization: `Bearer ${gotToken}` },
+            })
+          .then((response) => {
+            setTexts((prevTexts) => [...prevTexts, response]);
             });
     }
 
@@ -64,16 +74,17 @@ function EditRecord(props) {
                             onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
                             setTexts(updatedTexts)}}/>
                         </div>
-                        
                         ))}
+
           <div className="edit-buttons-div-row">
               <Link to={"/display"}><button className="blue-button" type="submit">Back</button></Link>
               <button className="blue-button" type="submit">Update</button>
+
          </div>   
         </form>
-
+        <button className="blue-button" onClick={ generateNewText }>Generate another text from same prompt</button>
         
-            </div>
+        </div>
             )}
       </>
     </Layout>
