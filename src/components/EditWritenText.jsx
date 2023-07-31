@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function EditRecord(props) {
+function EditWritenText(props) {
     const gotToken = localStorage.getItem("authToken");
     const [transcript, setTranscript] = useState("");
     const [texts, setTexts] = useState([]);
@@ -25,7 +25,7 @@ function EditRecord(props) {
                 setIsLoading(false);
             })
             .catch((err)=>console.log(err))
-    },[recordId, gotToken ]);
+    },[recordId, gotToken]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,16 +39,6 @@ function EditRecord(props) {
             navigate(`/display`);
             });
     }
-    
-    const generateNewText = async () => {
-      axios
-          .get(`${API_URL}/auth/writeText/${recordId}`, {
-              headers: { Authorization: `Bearer ${gotToken}` },
-            })
-          .then((response) => {
-            setTexts((prevTexts) => [...prevTexts, response]);
-            });
-    }
 
   return (
     <Layout>
@@ -60,10 +50,10 @@ function EditRecord(props) {
           <div className="main-edit-record-div">
                 <form onSubmit={handleSubmit}>
                     {/* Edit transcript */}
-                    <div className="edit-mini-div">
+                    {/* <div className="edit-mini-div">
                         <label className="login-label">Transcript:</label>
                         <textarea className="edit-record-input" type="text" name="transcript" value={transcript} onChange={(e) => setTranscript(e.target.value)}  />
-                    </div>
+                    </div> */}
 
                     {/* Edit written texts, if multiple */}
                     {texts.map((text, index) => (
@@ -74,21 +64,22 @@ function EditRecord(props) {
                             onChange={(e) => {const updatedTexts = texts.map((textObj, idx) => idx === index ? { ...textObj, text: e.target.value } : textObj);
                             setTexts(updatedTexts)}}/>
                         </div>
+                        
                         ))}
-
           <div className="edit-buttons-div-row">
-              <Link to={"/display"}><button className="blue-button" type="submit">Back</button></Link>
-              <button className="blue-button" type="submit">Update</button>
-
+       
+              
+              <button className="blue-button" type="submit">Save and display all texts </button>
+              <Link to={`/display`}><button className="blue-button" type="submit">No edits please</button></Link>
          </div>   
         </form>
-        {/* <button className="blue-button" onClick={ generateNewText }>Generate another text from same prompt</button>
-         */}
-        </div>
+
+        
+            </div>
             )}
       </>
     </Layout>
   )
 }
 
-export default EditRecord
+export default EditWritenText

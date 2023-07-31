@@ -15,12 +15,13 @@ function Recorder() {
     try {
       const gotToken = localStorage.getItem("authToken");
       const formData = new FormData();
-
       formData.append("audio", blob, "recorded.wav");
-      await axios.post(`${API_URL}/auth/record`, formData, {
+
+      const response = await axios.post(`${API_URL}/auth/record`, formData, {
         headers: { authorization: `Bearer ${gotToken}` },
       });
-      navigate("/recordsPage");
+      const { _id } = response.data.record;
+      navigate(`/transcribe/${_id}`);
     } catch (error) {
       console.error("Error uploading file:", error);
     }

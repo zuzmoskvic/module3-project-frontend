@@ -34,9 +34,8 @@ function AddRecord() {
       const response = await axios.post(`${API_URL}/auth/addRecord`, formData, {
         headers: { authorization: `Bearer ${gotToken}` },
       });
-      const { data } = response;
-
-      navigate("/recordsPage", { state: data.text });
+      const { recordId, text } = response.data;
+      navigate(`/transcribe/${recordId}`, { state: text });
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
@@ -72,9 +71,7 @@ function AddRecord() {
             onChange={handleRecordPath}
           />
 
-          <button className="pink-button" type="submit">
-            Next
-          </button>
+          <button className="pink-button" type="submit">Next </button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>

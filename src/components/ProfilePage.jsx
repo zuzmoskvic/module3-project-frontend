@@ -38,20 +38,13 @@ function ProfilePage() {
     <Layout>
     <>
 
-    {loading ? (
-  <p>Loading...</p>
-) : user && user._id ? (
-  <div className="profile-maindiv">
+    {loading ? (<p>Loading...</p>) : user && user._id ? (  <div className="profile-maindiv">
 
-    {/* {loading ? (
-            <p>Loading...</p>          
-        ) : ( 
-      <div className="profile-maindiv"> */}
         <div className="profile-leftdiv">
           <h1 className="profile-h1">Your profile</h1>
 
           {/* Clickable user profile  */}
-          <Link to={`/editUser/${user._id}`}  className="user-div-link">
+          <Link to={`editUser/${user._id}`}  className="user-div-link">
             <div className="user-div">
               {imageUrl ? (<img src={imageUrl} alt="user profile" className="profile-image"/>) : (<img src={defaultImageUrl} alt="user profile" className="profile-image"/>)}
               <p className="profile-email">{email}</p>
