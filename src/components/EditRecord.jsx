@@ -82,8 +82,8 @@ function EditRecord(props) {
 
          </div>   
         </form>
-        <button className="blue-button" onClick={ generateNewText }>Generate another text from same prompt</button>
-        
+        {/* <button className="blue-button" onClick={ generateNewText }>Generate another text from same prompt</button>
+         */}
         </div>
             )}
       </>
