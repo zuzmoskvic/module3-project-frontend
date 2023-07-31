@@ -57,7 +57,7 @@ function EditTranscript(props) {
 
           <div className="edit-buttons-div-row">
 
-              <button className="blue-button" type="submit">Change and send to write </button>
+              <button className="blue-button" type="submit">Change and write something</button>
               <Link to={`/transcribe/${recordId}`}><button className="blue-button" type="submit">Go back</button></Link>
          </div>   
         </form>
