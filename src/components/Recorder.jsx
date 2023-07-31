@@ -47,7 +47,7 @@ function Recorder() {
     setRecordedBlob(null);
     setRecordingComplete(false);
     // Reload the page
-    window.location.reload();
+    navigate("/record");
   };
 
   return (
