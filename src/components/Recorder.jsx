@@ -42,13 +42,13 @@ function Recorder() {
     }
   };
 
-  // const handleReRecordClick = () => {
-  //   // Reset the recordedBlob and isRecordingComplete states
-  //   setRecordedBlob(null);
-  //   setRecordingComplete(false);
-  //   // Reload the page
-  //   window.location.reload();
-  // };
+  const handleReRecordClick = () => {
+    // Reset the recordedBlob and isRecordingComplete states
+    setRecordedBlob(null);
+    setRecordingComplete(false);
+    // Reload the page
+    window.location.reload();
+  };
 
   return (
     <Layout>
@@ -86,7 +86,7 @@ function Recorder() {
 
       <div className="edit-buttons-div">
         <button className="pink-button" onClick={handleUploadClick}>Next</button>
-        {/* <button className="pink-button" onClick={handleReRecordClick}>Re-record</button> */}
+        <button className="pink-button" onClick={handleReRecordClick}>Re-record</button>
       </div>
       </div>
     </Layout>
