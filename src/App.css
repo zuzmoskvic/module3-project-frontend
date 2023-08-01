@@ -632,9 +632,30 @@ button{
 
   /* CSS for the pop-up menu (dropdown menu) */
 
+  .profile-maindiv{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+  }
 
+  .profile-rightdiv,.profile-leftdiv,.profile-leftdiv-buttonsdiv,.profile-rightdiv-buttonsdiv{
+    display: flex;
+    flex-direction: column;
+ 
+  }
 
+  .profile-leftdiv{
+    width: 80%;
+  }
 
+  .home-rightdiv{
+    /* width: 80%; */
+  }
+
+  .read-button{
+    width: 200px;  
+  }
 
 } 
 
