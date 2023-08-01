@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div>
+    <>
       <Layout>
         <div className="home-maindiv">
           <div className="home-leftdiv">
@@ -17,6 +17,7 @@ function Home() {
               />{" "}
               Generate Text from Speech
             </h1>
+            
             <h2 className="home-h2">We listen and you tell us what to write</h2>
             <Link to="/signup">
               <button className="pink-button"> Get started</button>
@@ -32,7 +33,7 @@ function Home() {
           </div>
         </div>
       </Layout>
-    </div>
+    </>
   );
 }
 

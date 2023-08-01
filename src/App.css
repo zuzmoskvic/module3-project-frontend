@@ -19,13 +19,13 @@ main{
   min-height: 100px;
   font-family: 'Space Grotesk';
   font-size: 12px;
-  background-color: #e6639d;
   max-width: 1000px;
   border-radius: 20px;
   background-color: #fcfaf9;
   height: 500px;
   padding: 0 50px;
   border: #242b32 2px solid;
+  overflow: none
 }
 
 button{
@@ -556,4 +556,97 @@ button{
 
 .loading-gif{
   height: 70px;
+}
+
+.hamburger-menu{
+ display: none;   
+}
+
+@media (max-width: 768px) {
+  main{
+    height: 90vh;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto; 
+    padding: 0 50px;
+    flex-direction: column;
+  }
+  
+  .illustration, .home-rightdiv{
+    display: flex;
+    flex-direction: column;
+    /* max-height: 100px; */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .illustration{
+    /* max-height: 100px; */
+    max-width: 200px;
+  }
+
+  .home-rightdiv{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .nav{
+    display: none;
+  }
+
+  .home-maindiv{
+    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-leftdiv{
+    display: flex;
+    align-items: center;
+    width: 100%
+    /* .home-leftdiv{
+      width: 55%;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } */
+  }
+
+  .home-h2{
+    font-size: 25px;
+  }
+
+  .pink-button{
+    font-size: large;
+    max-width: 80%;
+  }
+
+  .hamburger-menu{
+    display: flex;
+    align-self: flex-end;
+  }
+
+  /* CSS for the pop-up menu (dropdown menu) */
+
+
+
+
+
+} 
+
+
+@media (min-width: 769px) and (max-width: 959px) {
+
+}
+
+@media (min-width: 960px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }
